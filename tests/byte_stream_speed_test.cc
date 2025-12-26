@@ -11,11 +11,13 @@
 using namespace std;
 using namespace std::chrono;
 
-void speed_test( const size_t input_len,   // NOLINT(bugprone-easily-swappable-parameters)
-                 const size_t capacity,    // NOLINT(bugprone-easily-swappable-parameters)
-                 const size_t random_seed, // NOLINT(bugprone-easily-swappable-parameters)
-                 const size_t write_size,  // NOLINT(bugprone-easily-swappable-parameters)
-                 const size_t read_size )  // NOLINT(bugprone-easily-swappable-parameters)
+namespace {
+double speed_test( fstream& debug_output,
+                   const size_t input_len,   // NOLINT(bugprone-easily-swappable-parameters)
+                   const size_t capacity,    // NOLINT(bugprone-easily-swappable-parameters)
+                   const size_t random_seed, // NOLINT(bugprone-easily-swappable-parameters)
+                   const size_t write_size,  // NOLINT(bugprone-easily-swappable-parameters)
+                   const size_t read_size )  // NOLINT(bugprone-easily-swappable-parameters)
 {
   // Generate the data to be written
   const string data = [&random_seed, &input_len] {
@@ -72,24 +74,31 @@ void speed_test( const size_t input_len,   // NOLINT(bugprone-easily-swappable-p
   auto bits_per_second = 8 * bytes_per_second;
   auto gigabits_per_second = bits_per_second / 1e9;
 
-  fstream debug_output;
-  debug_output.open( "/dev/tty" );
-
   cout << "ByteStream with capacity=" << capacity << ", write_size=" << write_size << ", read_size=" << read_size
        << " reached " << fixed << setprecision( 2 ) << gigabits_per_second << " Gbit/s.\n";
 
-  debug_output << "             ByteStream throughput: " << fixed << setprecision( 2 ) << gigabits_per_second
-               << " Gbit/s\n";
+  auto read_s = to_string( read_size );
+  const string fill( 5 - read_s.size(), ' ' );
+  debug_output << "        ByteStream throughput (pop length " << read_s << "):" << fill << fixed
+               << setprecision( 2 ) << setw( 5 ) << gigabits_per_second << " Gbit/s\n";
 
   if ( gigabits_per_second < 0.1 ) {
-    throw runtime_error( "ByteStream did not meet minimum speed of 0.1 Gbit/s." );
+    throw runtime_error( "ByteStream did not meet minimum speed of 0.1 Gbit/s" );
   }
+
+  return gigabits_per_second;
 }
 
 void program_body()
 {
-  speed_test( 1e7, 32768, 789, 1500, 128 );
+  fstream debug_output;
+  debug_output.open( "/dev/tty" );
+
+  speed_test( debug_output, 1e7, 32768, 789, 1500, 4096 );
+  speed_test( debug_output, 1e7, 32768, 789, 1500, 128 );
+  speed_test( debug_output, 1e7, 32768, 789, 1500, 32 );
 }
+} // namespace
 
 int main()
 {

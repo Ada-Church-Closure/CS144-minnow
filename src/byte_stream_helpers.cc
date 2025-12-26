@@ -3,22 +3,24 @@
 #include <cstdint>
 #include <stdexcept>
 
+using namespace std;
+
 /*
- * read: A helper function thats peeks and pops up to `len` bytes
+ * read: A helper function thats peeks and pops up to `max_len` bytes
  * from a ByteStream Reader into a string;
  */
-void read( Reader& reader, uint64_t len, std::string& out )
+void read( Reader& reader, uint64_t max_len, string& out )
 {
   out.clear();
 
-  while ( reader.bytes_buffered() and out.size() < len ) {
+  while ( reader.bytes_buffered() and out.size() < max_len ) {
     auto view = reader.peek();
 
     if ( view.empty() ) {
-      throw std::runtime_error( "Reader::peek() returned empty string_view" );
+      throw runtime_error( "Reader::peek() returned empty string_view" );
     }
 
-    view = view.substr( 0, len - out.size() ); // Don't return more bytes than desired.
+    view = view.substr( 0, max_len - out.size() ); // Don't return more bytes than desired.
     out += view;
     reader.pop( view.size() );
   }

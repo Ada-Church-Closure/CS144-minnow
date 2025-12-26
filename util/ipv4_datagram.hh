@@ -2,8 +2,8 @@
 
 #include "ipv4_header.hh"
 #include "parser.hh"
+#include "ref.hh"
 
-#include <memory>
 #include <string>
 #include <vector>
 
@@ -11,20 +11,19 @@
 struct IPv4Datagram
 {
   IPv4Header header {};
-  std::vector<std::string> payload {};
+  std::vector<Ref<std::string>> payload {};
 
   void parse( Parser& parser )
   {
     header.parse( parser );
+    parser.truncate( header.payload_length() );
     parser.all_remaining( payload );
   }
 
   void serialize( Serializer& serializer ) const
   {
     header.serialize( serializer );
-    for ( const auto& x : payload ) {
-      serializer.buffer( x );
-    }
+    serializer.buffer( payload );
   }
 };
 

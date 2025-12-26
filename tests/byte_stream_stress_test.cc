@@ -5,6 +5,7 @@
 
 using namespace std;
 
+namespace {
 void stress_test( const size_t input_len,    // NOLINT(bugprone-easily-swappable-parameters)
                   const size_t capacity,     // NOLINT(bugprone-easily-swappable-parameters)
                   const size_t random_seed ) // NOLINT(bugprone-easily-swappable-parameters)
@@ -22,6 +23,9 @@ void stress_test( const size_t input_len,    // NOLINT(bugprone-easily-swappable
 
   ByteStreamTestHarness bs { "stress test input=" + to_string( input_len ) + ", capacity=" + to_string( capacity ),
                              capacity };
+  if ( bs.skipped() ) {
+    return;
+  }
 
   size_t expected_bytes_pushed {};
   size_t expected_bytes_popped {};
@@ -77,6 +81,7 @@ void program_body()
   stress_test( 1111, 17, 98765 );
   stress_test( 4097, 4096, 11101 );
 }
+} // namespace
 
 int main()
 {

@@ -1,10 +1,9 @@
 #include "eventloop.hh"
 #include "exception.hh"
-#include "socket.hh"
 
 #include <cstring>
-#include <iomanip>
 #include <iostream>
+#include <sys/socket.h>
 
 using namespace std;
 
@@ -32,7 +31,7 @@ EventLoop::FDRule::FDRule( BasicRule&& base,
                            Direction s_direction,
                            CallbackT s_cancel,
                            CallbackT s_error )
-  : BasicRule( base )
+  : BasicRule( move( base ) )
   , fd( move( s_fd ) )
   , direction( s_direction )
   , cancel( move( s_cancel ) )
@@ -144,7 +143,9 @@ EventLoop::Result EventLoop::wait_next_event( const int timeout_ms )
     }
 
     if ( this_rule.interest() ) {
-      pollfds.push_back( { this_rule.fd.fd_num(), static_cast<int16_t>( this_rule.direction ), 0 } );
+      pollfds.push_back( { this_rule.fd.fd_num(),
+                           static_cast<int16_t>( this_rule.direction == Direction::In ? POLLIN : POLLOUT ),
+                           0 } );
       something_to_poll = true;
     } else {
       pollfds.push_back( { this_rule.fd.fd_num(), 0, 0 } ); // placeholder --- we still want errors

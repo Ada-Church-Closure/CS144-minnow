@@ -2,7 +2,6 @@
 
 #include "exception.hh"
 
-#include <arpa/inet.h>
 #include <array>
 #include <cstring>
 #include <linux/if_packet.h>
@@ -28,14 +27,14 @@ Address::Raw::operator const sockaddr*() const
 
 //! \param[in] addr points to a raw socket address
 //! \param[in] size is `addr`'s length
-Address::Address( const sockaddr* addr, const size_t size ) : _size( size )
+Address::Address( const sockaddr* addr, const size_t size ) : size_( size )
 {
   // make sure proposed sockaddr can fit
-  if ( size > sizeof( _address.storage ) ) {
+  if ( size > sizeof( address_.storage ) ) {
     throw runtime_error( "invalid sockaddr size" );
   }
 
-  memcpy( &_address.storage, addr, size );
+  memcpy( &address_.storage, addr, size );
 }
 
 //! Error category for getaddrinfo and getnameinfo failures.
@@ -53,7 +52,7 @@ public:
 //! \param[in] node is the hostname or dotted-quad address
 //! \param[in] service is the service name or numeric string
 //! \param[in] hints are criteria for resolving the supplied name
-Address::Address( const string& node, const string& service, const addrinfo& hints ) : _size()
+Address::Address( const string& node, const string& service, const addrinfo& hints ) : size_()
 {
   // prepare for the answer
   addrinfo* resolved_address = nullptr;
@@ -81,6 +80,7 @@ Address::Address( const string& node, const string& service, const addrinfo& hin
 //! \param[in] ai_flags is the value of the `ai_flags` field in the [struct addrinfo](\ref man3::getaddrinfo)
 //! \param[in] ai_family is the value of the `ai_family` field in the [struct addrinfo](\ref
 //! man3::getaddrinfo)
+namespace {
 inline addrinfo make_hints( int ai_flags, int ai_family ) // NOLINT(*-swappable-parameters)
 {
   addrinfo hints {}; // value initialized to all zeros
@@ -88,6 +88,7 @@ inline addrinfo make_hints( int ai_flags, int ai_family ) // NOLINT(*-swappable-
   hints.ai_family = ai_family;
   return hints;
 }
+} // namespace
 
 //! \param[in] hostname to resolve
 //! \param[in] service name (from `/etc/services`, e.g., "http" is port 80)
@@ -105,15 +106,15 @@ Address::Address( const string& ip, const uint16_t port )
 // accessors
 pair<string, uint16_t> Address::ip_port() const
 {
-  if ( _address.storage.ss_family != AF_INET and _address.storage.ss_family != AF_INET6 ) {
+  if ( address_.storage.ss_family != AF_INET and address_.storage.ss_family != AF_INET6 ) {
     throw runtime_error( "Address::ip_port() called on non-Internet address" );
   }
 
   array<char, NI_MAXHOST> ip {};
   array<char, NI_MAXSERV> port {};
 
-  const int gni_ret = getnameinfo( static_cast<const sockaddr*>( _address ),
-                                   _size,
+  const int gni_ret = getnameinfo( static_cast<const sockaddr*>( address_ ),
+                                   size_,
                                    ip.data(),
                                    ip.size(),
                                    port.data(),
@@ -128,7 +129,7 @@ pair<string, uint16_t> Address::ip_port() const
 
 string Address::to_string() const
 {
-  if ( _address.storage.ss_family == AF_INET or _address.storage.ss_family == AF_INET6 ) {
+  if ( address_.storage.ss_family == AF_INET or address_.storage.ss_family == AF_INET6 ) {
     const auto ip_and_port = ip_port();
     return ip_and_port.first + ":" + ::to_string( ip_and_port.second );
   }
@@ -138,12 +139,12 @@ string Address::to_string() const
 
 uint32_t Address::ipv4_numeric() const
 {
-  if ( _address.storage.ss_family != AF_INET or _size != sizeof( sockaddr_in ) ) {
+  if ( address_.storage.ss_family != AF_INET or size_ != sizeof( sockaddr_in ) ) {
     throw runtime_error( "ipv4_numeric called on non-IPV4 address" );
   }
 
   sockaddr_in ipv4_addr {};
-  memcpy( &ipv4_addr, &_address.storage, _size );
+  memcpy( &ipv4_addr, &address_.storage, size_ );
 
   return be32toh( ipv4_addr.sin_addr.s_addr );
 }
@@ -160,11 +161,11 @@ Address Address::from_ipv4_numeric( const uint32_t ip_address )
 // equality
 bool Address::operator==( const Address& other ) const
 {
-  if ( _size != other._size ) {
+  if ( size_ != other.size_ ) {
     return false;
   }
 
-  return 0 == memcmp( &_address, &other._address, _size );
+  return 0 == memcmp( &address_, &other.address_, size_ );
 }
 
 // address families that correspond to each sockaddr type
@@ -184,9 +185,9 @@ constexpr int sockaddr_family<sockaddr_ll> = AF_PACKET;
 template<typename sockaddr_type>
 const sockaddr_type* Address::as() const
 {
-  const sockaddr* raw { _address };
+  const sockaddr* raw { address_ };
   if ( sizeof( sockaddr_type ) < size() or raw->sa_family != sockaddr_family<sockaddr_type> ) {
-    throw std::runtime_error( "Address::as() conversion failure" );
+    throw runtime_error( "Address::as() conversion failure" );
   }
 
   return reinterpret_cast<const sockaddr_type*>( raw ); // NOLINT(*-reinterpret-cast)

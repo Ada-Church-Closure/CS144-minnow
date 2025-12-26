@@ -2,11 +2,8 @@
 
 #include "exception.hh"
 
-#include <cstddef>
 #include <linux/if_packet.h>
-#include <net/if.h>
 #include <stdexcept>
-#include <sys/ioctl.h>
 #include <unistd.h>
 
 using namespace std;
@@ -15,7 +12,7 @@ using namespace std;
 //! \param[in] domain is as described in [socket(7)](\ref man7::socket), probably `AF_INET` or `AF_UNIX`
 //! \param[in] type is as described in [socket(7)](\ref man7::socket)
 Socket::Socket( const int domain, const int type, const int protocol )
-  : FileDescriptor( ::CheckSystemCall( "socket", socket( domain, type, protocol ) ) )
+  : FileDescriptor( CheckSystemCall( "socket", socket( domain, type, protocol ) ) )
 {}
 
 // construct from file descriptor
@@ -91,7 +88,7 @@ void Socket::bind_to_device( const string_view device_name )
 //! \param[in] address is the peer's Address
 void Socket::connect( const Address& address )
 {
-  CheckSystemCall( "connect", ::connect( fd_num(), address.raw(), address.size() ) );
+  CheckFDSystemCall( "connect", ::connect( fd_num(), address.raw(), address.size() ) );
 }
 
 // shut down a socket in the specified way
@@ -115,40 +112,106 @@ void Socket::shutdown( const int how )
   }
 }
 
-//! \note If payload is too small to hold the received datagram, this method throws a std::runtime_error
 void DatagramSocket::recv( Address& source_address, string& payload )
 {
-  // receive source address and payload
-  Address::Raw datagram_source_address;
-  socklen_t fromlen = sizeof( datagram_source_address );
-
-  payload.clear();
-  payload.resize( kReadBufferSize );
-
-  const ssize_t recv_len = CheckSystemCall(
-    "recvfrom",
-    ::recvfrom( fd_num(), payload.data(), payload.size(), MSG_TRUNC, datagram_source_address, &fromlen ) );
-
-  if ( recv_len > static_cast<ssize_t>( payload.size() ) ) {
-    throw runtime_error( "recvfrom (oversized datagram)" );
+  if ( payload.empty() ) {
+    payload.resize( kReadBufferSize );
   }
 
+  Address::Raw raw_source_address;
+  socklen_t namelen = sizeof( raw_source_address );
+  const size_t recv_len = CheckFDSystemCall(
+    "recvfrom", ::recvfrom( fd_num(), payload.data(), payload.size(), MSG_TRUNC, raw_source_address, &namelen ) );
   register_read();
-  source_address = { datagram_source_address, fromlen };
-  payload.resize( recv_len );
+
+  if ( recv_len > payload.size() ) {
+    throw runtime_error( "recvfrom (oversized datagram of length " + to_string( recv_len ) + ")" );
+  }
+  if ( namelen <= 0 || namelen > sizeof( raw_source_address ) ) {
+    throw runtime_error( "recvfrom gave invalid namelen" );
+  }
+
+  source_address = { raw_source_address, namelen };
 }
 
-void DatagramSocket::sendto( const Address& destination, const string_view payload )
+void DatagramSocket::recv( Address& source_address, vector<string>& payloads )
 {
-  CheckSystemCall(
-    "sendto", ::sendto( fd_num(), payload.data(), payload.length(), 0, destination.raw(), destination.size() ) );
-  register_write();
+  if ( payloads.empty() ) {
+    throw runtime_error( "DatagramSocket::recv called with no payload buffers" );
+  }
+
+  if ( payloads.back().empty() ) {
+    payloads.back().resize( kReadBufferSize );
+  }
+
+  // set up iovecs
+  static thread_local vector<iovec> iovecs;
+  const size_t total_size = to_iovecs( payloads, iovecs );
+
+  // set up msghdr
+  Address::Raw raw_source_address;
+  msghdr message { .msg_name = &raw_source_address,
+                   .msg_namelen = sizeof( raw_source_address ),
+                   .msg_iov = iovecs.data(),
+                   .msg_iovlen = iovecs.size(),
+                   .msg_control = nullptr,
+                   .msg_controllen {},
+                   .msg_flags {} };
+  const size_t recv_len = CheckFDSystemCall( "recvmsg", ::recvmsg( fd_num(), &message, MSG_TRUNC ) );
+  register_read();
+  if ( recv_len > total_size ) {
+    throw runtime_error( "recvmsg (oversized datagram of length " + to_string( recv_len ) + ")" );
+  }
+  if ( message.msg_flags & MSG_TRUNC ) {
+    throw runtime_error( "recvmsg (oversized datagram indicated only by MSG_TRUNC)" );
+  }
+  if ( message.msg_namelen <= 0 || message.msg_namelen > sizeof( raw_source_address ) ) {
+    throw runtime_error( "recvmsg gave invalid namelen" );
+  }
+  source_address = { raw_source_address, message.msg_namelen };
+
+  size_t remaining_size = recv_len;
+  for ( auto& buf : payloads ) {
+    if ( remaining_size >= buf.size() ) {
+      remaining_size -= buf.size();
+    } else {
+      buf.resize( remaining_size );
+      remaining_size = 0;
+    }
+  }
 }
 
-void DatagramSocket::send( const string_view payload )
+void DatagramSocket::send( string_view payload, const optional<Address>& destination )
 {
-  CheckSystemCall( "send", ::send( fd_num(), payload.data(), payload.length(), 0 ) );
+  const size_t bytes_sent = CheckFDSystemCall( "sendto",
+                                               ::sendto( fd_num(),
+                                                         payload.data(),
+                                                         payload.size(),
+                                                         0,
+                                                         destination.has_value() ? destination->raw() : nullptr,
+                                                         destination.has_value() ? destination->size() : 0 ) );
   register_write();
+  if ( bytes_sent != payload.size() ) {
+    throw runtime_error( "sendto sent some length other than that of payload" );
+  }
+}
+
+void DatagramSocket::send( vector<iovec>& iovecs, size_t total_size, const optional<Address>& destination )
+{
+  const msghdr message { .msg_name = destination.has_value() // NOLINTNEXTLINE(*-const-cast)
+                                       ? static_cast<void*>( const_cast<sockaddr*>( destination->raw() ) )
+                                       : nullptr,
+                         .msg_namelen = destination.has_value() ? destination->size() : 0,
+                         .msg_iov = iovecs.data(),
+                         .msg_iovlen = iovecs.size(),
+                         .msg_control = nullptr,
+                         .msg_controllen {},
+                         .msg_flags {} };
+  const size_t bytes_sent = CheckFDSystemCall( "sendmsg", ::sendmsg( fd_num(), &message, 0 ) );
+  register_write();
+  if ( bytes_sent != total_size ) {
+    throw runtime_error( "sendmsg sent some length other than that of payload" );
+  }
 }
 
 // mark the socket as listening for incoming connections
@@ -211,11 +274,4 @@ void Socket::throw_if_error() const
   if ( socket_error ) {
     throw unix_error( "socket error", socket_error );
   }
-}
-
-void PacketSocket::set_promiscuous()
-{
-  setsockopt( SOL_PACKET,
-              PACKET_ADD_MEMBERSHIP,
-              packet_mreq { local_address().as<sockaddr_ll>()->sll_ifindex, PACKET_MR_PROMISC, {}, {} } );
 }

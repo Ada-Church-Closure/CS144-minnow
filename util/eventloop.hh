@@ -3,9 +3,7 @@
 #include <functional>
 #include <list>
 #include <memory>
-#include <ostream>
 #include <poll.h>
-#include <string_view>
 
 #include "file_descriptor.hh"
 
@@ -14,10 +12,10 @@ class EventLoop
 {
 public:
   //! Indicates interest in reading (In) or writing (Out) a polled fd.
-  enum class Direction : int16_t
+  enum class Direction : bool
   {
-    In = POLLIN,  //!< Callback will be triggered when Rule::fd is readable.
-    Out = POLLOUT //!< Callback will be triggered when Rule::fd is writable.
+    In, // Callback will be triggered when Rule::fd is readable.
+    Out // Callback will be triggered when Rule::fd is writable.
   };
 
 private:
@@ -61,7 +59,7 @@ public:
   EventLoop() { _rule_categories.reserve( 64 ); }
 
   //! Returned by each call to EventLoop::wait_next_event.
-  enum class Result
+  enum class Result : uint8_t
   {
     Success, //!< At least one Rule was triggered.
     Timeout, //!< No rules were triggered before timeout.
@@ -77,7 +75,7 @@ public:
 
   public:
     template<class RuleType>
-    explicit RuleHandle( const std::shared_ptr<RuleType> x ) : rule_weak_ptr_( x )
+    explicit RuleHandle( const std::shared_ptr<RuleType>& x ) : rule_weak_ptr_( x )
     {}
 
     void cancel();
@@ -92,10 +90,8 @@ public:
     const CallbackT& cancel = [] {},
     const CallbackT& error = [] {} );
 
-  RuleHandle add_rule(
-    size_t category_id,
-    const CallbackT& callback,
-    const InterestT& interest = [] { return true; } );
+  RuleHandle
+  add_rule( size_t category_id, const CallbackT& callback, const InterestT& interest = [] { return true; } );
 
   //! Calls [poll(2)](\ref man2::poll) and then executes callback for each ready fd.
   Result wait_next_event( int timeout_ms );

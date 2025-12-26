@@ -1,11 +1,11 @@
 #pragma once
 
-#include <algorithm>
+#include "ref.hh"
+
 #include <concepts>
 #include <cstdint>
-#include <cstring>
 #include <deque>
-#include <numeric>
+#include <ranges>
 #include <span>
 #include <stdexcept>
 #include <string>
@@ -17,95 +17,32 @@ class Parser
   class BufferList
   {
     uint64_t size_ {};
-    std::deque<std::string> buffer_ {};
+    std::deque<Ref<std::string>> buffer_ {};
     uint64_t skip_ {};
 
   public:
-    explicit BufferList( const std::vector<std::string>& buffers )
+    explicit BufferList( std::ranges::range auto&& buffers )
+      requires std::is_convertible_v<decltype( std::move( *buffers.begin() ) ), Ref<std::string>>
     {
-      for ( const auto& x : buffers ) {
-        append( x );
+      for ( auto&& x : buffers ) {
+        buffer_.emplace_back( std::move( x ) );
+        if ( buffer_.back().is_borrowed() ) {
+          throw std::runtime_error( "cannot parse borrowed string" );
+        }
+        size_ += buffer_.back()->size();
       }
     }
 
     uint64_t size() const { return size_; }
     uint64_t serialized_length() const { return size(); }
     bool empty() const { return size_ == 0; }
+    size_t buffer_segment_count() const { return buffer_.size(); }
 
-    std::string_view peek() const
-    {
-      if ( buffer_.empty() ) {
-        throw std::runtime_error( "peek on empty BufferList" );
-      }
-      return std::string_view { buffer_.front() }.substr( skip_ );
-    }
-
-    void remove_prefix( uint64_t len )
-    {
-      while ( len and not buffer_.empty() ) {
-        const uint64_t to_pop_now = std::min( len, peek().size() );
-        skip_ += to_pop_now;
-        len -= to_pop_now;
-        size_ -= to_pop_now;
-        if ( skip_ == buffer_.front().size() ) {
-          buffer_.pop_front();
-          skip_ = 0;
-        }
-      }
-    }
-
-    void dump_all( std::vector<std::string>& out )
-    {
-      out.clear();
-      if ( empty() ) {
-        return;
-      }
-      std::string first_str = std::move( buffer_.front() );
-      if ( skip_ ) {
-        first_str = first_str.substr( skip_ );
-      }
-      out.emplace_back( std::move( first_str ) );
-      buffer_.pop_front();
-      for ( auto&& x : buffer_ ) {
-        out.emplace_back( std::move( x ) );
-      }
-    }
-
-    void dump_all( std::string& out )
-    {
-      std::vector<std::string> concat;
-      dump_all( concat );
-      if ( concat.size() == 1 ) {
-        out = std::move( concat.front() );
-        return;
-      }
-
-      out.clear();
-      for ( const auto& s : concat ) {
-        out.append( s );
-      }
-    }
-
-    std::vector<std::string_view> buffer() const
-    {
-      if ( empty() ) {
-        return {};
-      }
-      std::vector<std::string_view> ret;
-      ret.reserve( buffer_.size() );
-      auto tmp_skip = skip_;
-      for ( const auto& x : buffer_ ) {
-        ret.push_back( std::string_view { x }.substr( tmp_skip ) );
-        tmp_skip = 0;
-      }
-      return ret;
-    }
-
-    void append( std::string str )
-    {
-      size_ += str.size();
-      buffer_.push_back( std::move( str ) );
-    }
+    std::string_view peek() const;
+    void remove_prefix( uint64_t len );
+    void truncate( size_t len );
+    void dump_all( std::vector<Ref<std::string>>& out );
+    std::vector<std::string_view> buffer() const;
   };
 
   BufferList input_;
@@ -119,13 +56,18 @@ class Parser
   }
 
 public:
-  explicit Parser( const std::vector<std::string>& input ) : input_( input ) {}
-
-  const BufferList& input() const { return input_; }
+  explicit Parser( std::ranges::range auto&& input ) : input_( std::forward<decltype( input )>( input ) ) {}
 
   bool has_error() const { return error_; }
   void set_error() { error_ = true; }
   void remove_prefix( size_t n ) { input_.remove_prefix( n ); }
+  void truncate( size_t len ) { input_.truncate( len ); }
+
+  void all_remaining( std::vector<Ref<std::string>>& out ) { input_.dump_all( out ); }
+  std::vector<std::string_view> buffer() const { return input_.buffer(); }
+
+  void string( std::span<char> out );
+  void concatenate_all_remaining( std::string& out );
 
   template<std::unsigned_integral T>
   void integer( T& out )
@@ -148,36 +90,16 @@ public:
       }
     }
   }
-
-  void string( std::span<char> out )
-  {
-    check_size( out.size() );
-    if ( has_error() ) {
-      return;
-    }
-
-    auto next = out.begin();
-    while ( next != out.end() ) {
-      const auto view = input_.peek().substr( 0, out.end() - next );
-      next = std::copy( view.begin(), view.end(), next );
-      input_.remove_prefix( view.size() );
-    }
-  }
-
-  void all_remaining( std::vector<std::string>& out ) { input_.dump_all( out ); }
-  void all_remaining( std::string& out ) { input_.dump_all( out ); }
-  std::vector<std::string_view> buffer() const { return input_.buffer(); }
 };
 
 class Serializer
 {
-  std::vector<std::string> output_ {};
+  std::vector<Ref<std::string>> output_ {};
   std::string buffer_ {};
 
-public:
-  Serializer() = default;
-  explicit Serializer( std::string&& buffer ) : buffer_( std::move( buffer ) ) {}
+  void flush();
 
+public:
   template<std::unsigned_integral T>
   void integer( const T val )
   {
@@ -189,46 +111,8 @@ public:
     }
   }
 
-  void buffer( std::string buf )
-  {
-    flush();
-    output_.push_back( std::move( buf ) );
-  }
-
-  void buffer( const std::vector<std::string>& bufs )
-  {
-    for ( const auto& b : bufs ) {
-      buffer( b );
-    }
-  }
-
-  void flush()
-  {
-    output_.emplace_back( std::move( buffer_ ) );
-    buffer_.clear();
-  }
-
-  const std::vector<std::string>& output()
-  {
-    flush();
-    return output_;
-  }
+  void buffer( std::string buf );
+  void buffer( Ref<std::string> buf );
+  void buffer( const std::vector<Ref<std::string>>& bufs );
+  std::vector<Ref<std::string>> finish();
 };
-
-// Helper to serialize any object (without constructing a Serializer of the caller's own)
-template<class T>
-std::vector<std::string> serialize( const T& obj )
-{
-  Serializer s;
-  obj.serialize( s );
-  return s.output();
-}
-
-// Helper to parse any object (without constructing a Parser of the caller's own). Returns true if successful.
-template<class T, typename... Targs>
-bool parse( T& obj, const std::vector<std::string>& buffers, Targs&&... Fargs )
-{
-  Parser p { buffers };
-  obj.parse( p, std::forward<Targs>( Fargs )... );
-  return not p.has_error();
-}

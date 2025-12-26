@@ -2,8 +2,6 @@
 #include "checksum.hh"
 
 #include <arpa/inet.h>
-#include <array>
-#include <cstddef>
 #include <sstream>
 
 using namespace std;
@@ -43,7 +41,7 @@ void IPv4Header::parse( Parser& parser )
     return;
   }
 
-  parser.remove_prefix( static_cast<uint64_t>( hlen ) * 4 - IPv4Header::LENGTH );
+  parser.remove_prefix( ( static_cast<uint64_t>( hlen ) * 4 ) - IPv4Header::LENGTH );
 
   // Verify checksum
   const uint16_t given_cksum = cksum;
@@ -81,7 +79,7 @@ void IPv4Header::serialize( Serializer& serializer ) const
 
 uint16_t IPv4Header::payload_length() const
 {
-  return len - 4 * hlen;
+  return len - ( 4 * hlen );
 }
 
 //! \details This value is needed when computing the checksum of an encapsulated TCP segment.
@@ -112,14 +110,14 @@ void IPv4Header::compute_checksum()
 
   // calculate checksum -- taken over header only
   InternetChecksum check;
-  check.add( s.output() );
+  check.add( s.finish() );
   cksum = check.value();
 }
 
-std::string IPv4Header::to_string() const
+string IPv4Header::to_string() const
 {
   stringstream ss {};
-  ss << hex << boolalpha << "IPv" << +ver << " len=" << dec << +len << " protocol=" << +proto
+  ss << hex << boolalpha << "IPv" << +ver << " len=" << dec << +len << " proto=" << +proto
      << " ttl=" + ::to_string( ttl ) << " src=" << inet_ntoa( { htobe32( src ) } )
      << " dst=" << inet_ntoa( { htobe32( dst ) } );
   return ss.str();

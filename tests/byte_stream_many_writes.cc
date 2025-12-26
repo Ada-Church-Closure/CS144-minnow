@@ -1,4 +1,3 @@
-#include "byte_stream.hh"
 #include "byte_stream_test_harness.hh"
 #include "random.hh"
 
@@ -24,7 +23,7 @@ int main()
       for ( size_t i = 0; i < NREPS; ++i ) {
         const size_t size = MIN_WRITE + ( rd() % ( MAX_WRITE - MIN_WRITE ) );
         string d( size, 0 );
-        generate( d.begin(), d.end(), [&] { return 'a' + ( rd() % 26 ); } );
+        ranges::generate( d, [&] { return 'a' + ( rd() % 26 ); } );
 
         test.execute( Push { d } );
         acc += size;
@@ -40,7 +39,7 @@ int main()
     }
 
   } catch ( const exception& e ) {
-    cerr << "Exception: " << e.what() << endl;
+    cerr << "Exception: " << e.what() << "\n";
     return EXIT_FAILURE;
   }
 

@@ -7,11 +7,13 @@
 
 using namespace std;
 
+namespace {
 void show_usage( const char* argv0 )
 {
   cerr << "Usage: " << argv0 << " [-l] <host> <port>\n\n"
-       << "  -l specifies listen mode; <host>:<port> is the listening address." << endl;
+       << "  -l specifies listen mode; <host>:<port> is the listening address.\n";
 }
+} // namespace
 
 int main( int argc, char** argv )
 {
@@ -51,7 +53,7 @@ int main( int argc, char** argv )
 
     bidirectional_stream_copy( socket, socket.peer_address().to_string() );
   } catch ( const exception& e ) {
-    cerr << "Exception: " << e.what() << endl;
+    cerr << "Exception: " << e.what() << "\n";
     return EXIT_FAILURE;
   }
 

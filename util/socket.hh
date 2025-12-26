@@ -3,7 +3,6 @@
 #include "address.hh"
 #include "file_descriptor.hh"
 
-#include <cstdint>
 #include <functional>
 #include <sys/socket.h>
 
@@ -11,28 +10,6 @@
 //! \details Socket is generally used via a subclass. See TCPSocket and UDPSocket for usage examples.
 class Socket : public FileDescriptor
 {
-private:
-  //! Get the local or peer address the socket is connected to
-  Address get_address( const std::string& name_of_function,
-                       const std::function<int( int, sockaddr*, socklen_t* )>& function ) const;
-
-protected:
-  //! Construct via [socket(2)](\ref man2::socket)
-  Socket( int domain, int type, int protocol = 0 );
-
-  //! Construct from a file descriptor.
-  Socket( FileDescriptor&& fd, int domain, int type, int protocol = 0 );
-
-  //! Wrapper around [getsockopt(2)](\ref man2::getsockopt)
-  template<typename option_type>
-  socklen_t getsockopt( int level, int option, option_type& option_value ) const;
-
-  //! Wrappers around [setsockopt(2)](\ref man2::setsockopt)
-  template<typename option_type>
-  void setsockopt( int level, int option, const option_type& option_value );
-
-  void setsockopt( int level, int option, std::string_view option_val );
-
 public:
   //! Bind a socket to a specified address with [bind(2)](\ref man2::bind), usually for listen/accept
   void bind( const Address& address );
@@ -56,21 +33,56 @@ public:
 
   //! Check for errors (will be seen on non-blocking sockets)
   void throw_if_error() const;
+
+private:
+  //! Get the local or peer address the socket is connected to
+  Address get_address( const std::string& name_of_function,
+                       const std::function<int( int, sockaddr*, socklen_t* )>& function ) const;
+
+protected:
+  //! Construct via [socket(2)](\ref man2::socket)
+  Socket( int domain, int type, int protocol = 0 );
+
+  //! Construct from a file descriptor.
+  Socket( FileDescriptor&& fd, int domain, int type, int protocol = 0 );
+
+  //! Wrapper around [getsockopt(2)](\ref man2::getsockopt)
+  template<typename option_type>
+  socklen_t getsockopt( int level, int option, option_type& option_value ) const;
+
+  //! Wrappers around [setsockopt(2)](\ref man2::setsockopt)
+  template<typename option_type>
+  void setsockopt( int level, int option, const option_type& option_value );
+
+  void setsockopt( int level, int option, std::string_view option_val );
 };
 
 class DatagramSocket : public Socket
 {
-  using Socket::Socket;
-
 public:
-  //! Receive a datagram and the Address of its sender
+  // Receive a datagram and the Address of its sender, into a buffer or collection of buffers.
   void recv( Address& source_address, std::string& payload );
+  void recv( Address& source_address, std::vector<std::string>& payloads );
 
-  //! Send a datagram to specified Address
-  void sendto( const Address& destination, std::string_view payload );
+  //! Send a datagram to specified Address (if destination is missing, sends to already-connected address)
+  void send( std::string_view payload, const std::optional<Address>& destination = {} );
+  void send( const StringViewRange auto&& payloads, const std::optional<Address>& destination = {} )
+  {
+    static thread_local std::vector<iovec> iovecs;
+    size_t total_size = to_iovecs( payloads, iovecs );
+    send( iovecs, total_size, destination );
+  }
 
-  //! Send datagram to the socket's connected address (must call connect() first)
-  void send( std::string_view payload );
+private:
+  void send( std::vector<iovec>& iovecs, size_t total_size, const std::optional<Address>& destination = {} );
+
+protected:
+  DatagramSocket( int domain, int type, int protocol = 0 ) : Socket( domain, type, protocol ) {}
+
+  //! Construct from a file descriptor.
+  DatagramSocket( FileDescriptor&& fd, int domain, int type, int protocol = 0 )
+    : Socket( std::move( fd ), domain, type, protocol )
+  {}
 };
 
 //! A wrapper around [UDP sockets](\ref man7::udp)
@@ -110,6 +122,13 @@ public:
   PacketSocket( const int type, const int protocol ) : DatagramSocket( AF_PACKET, type, protocol ) {}
 
   void set_promiscuous();
+};
+
+//! A wrapper around [raw sockets](\ref man7:raw)
+class RawSocket : public DatagramSocket
+{
+public:
+  RawSocket() : DatagramSocket( AF_INET, SOCK_RAW, IPPROTO_RAW ) {}
 };
 
 //! A wrapper around [Unix-domain stream sockets](\ref man7::unix)
