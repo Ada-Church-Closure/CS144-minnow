@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Utility rule file for check_webget.
 
@@ -67,7 +67,7 @@ include CMakeFiles/check_webget.dir/compiler_depend.make
 include CMakeFiles/check_webget.dir/progress.make
 
 CMakeFiles/check_webget:
-	/usr/bin/ctest --output-on-failure --timeout 12 -R 'webget'
+	/usr/bin/ctest --output-on-failure --timeout 15 -R 'webget'
 
 CMakeFiles/check_webget.dir/codegen:
 .PHONY : CMakeFiles/check_webget.dir/codegen
@@ -85,6 +85,6 @@ CMakeFiles/check_webget.dir/clean:
 .PHONY : CMakeFiles/check_webget.dir/clean
 
 CMakeFiles/check_webget.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/CMakeFiles/check_webget.dir/DependInfo.cmake "--color=$(COLOR)" check_webget
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles/check_webget.dir/DependInfo.cmake "--color=$(COLOR)" check_webget
 .PHONY : CMakeFiles/check_webget.dir/depend
 

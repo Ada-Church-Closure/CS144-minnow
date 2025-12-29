@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/minnow_testing_debug.dir/depend.make
@@ -73,18 +73,18 @@ tests/CMakeFiles/minnow_testing_debug.dir/codegen:
 .PHONY : tests/CMakeFiles/minnow_testing_debug.dir/codegen
 
 tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o: tests/CMakeFiles/minnow_testing_debug.dir/flags.make
-tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o: /home/ada/Lessons/CS144-minnow/tests/common.cc
+tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o: /home/ada/CS-Systems-Internals/CS144-minnow/tests/common.cc
 tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o: tests/CMakeFiles/minnow_testing_debug.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ada/Lessons/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o -MF CMakeFiles/minnow_testing_debug.dir/common.cc.o.d -o CMakeFiles/minnow_testing_debug.dir/common.cc.o -c /home/ada/Lessons/CS144-minnow/tests/common.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o"
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o -MF CMakeFiles/minnow_testing_debug.dir/common.cc.o.d -o CMakeFiles/minnow_testing_debug.dir/common.cc.o -c /home/ada/CS-Systems-Internals/CS144-minnow/tests/common.cc
 
 tests/CMakeFiles/minnow_testing_debug.dir/common.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minnow_testing_debug.dir/common.cc.i"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/Lessons/CS144-minnow/tests/common.cc > CMakeFiles/minnow_testing_debug.dir/common.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/CS-Systems-Internals/CS144-minnow/tests/common.cc > CMakeFiles/minnow_testing_debug.dir/common.cc.i
 
 tests/CMakeFiles/minnow_testing_debug.dir/common.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minnow_testing_debug.dir/common.cc.s"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/Lessons/CS144-minnow/tests/common.cc -o CMakeFiles/minnow_testing_debug.dir/common.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/CS-Systems-Internals/CS144-minnow/tests/common.cc -o CMakeFiles/minnow_testing_debug.dir/common.cc.s
 
 # Object files for target minnow_testing_debug
 minnow_testing_debug_OBJECTS = \
@@ -96,19 +96,19 @@ minnow_testing_debug_EXTERNAL_OBJECTS =
 tests/libminnow_testing_debug.a: tests/CMakeFiles/minnow_testing_debug.dir/common.cc.o
 tests/libminnow_testing_debug.a: tests/CMakeFiles/minnow_testing_debug.dir/build.make
 tests/libminnow_testing_debug.a: tests/CMakeFiles/minnow_testing_debug.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ada/Lessons/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libminnow_testing_debug.a"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/minnow_testing_debug.dir/cmake_clean_target.cmake
-	cd /home/ada/Lessons/CS144-minnow/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minnow_testing_debug.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libminnow_testing_debug.a"
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/minnow_testing_debug.dir/cmake_clean_target.cmake
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minnow_testing_debug.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/minnow_testing_debug.dir/build: tests/libminnow_testing_debug.a
 .PHONY : tests/CMakeFiles/minnow_testing_debug.dir/build
 
 tests/CMakeFiles/minnow_testing_debug.dir/clean:
-	cd /home/ada/Lessons/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/minnow_testing_debug.dir/cmake_clean.cmake
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/minnow_testing_debug.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/minnow_testing_debug.dir/clean
 
 tests/CMakeFiles/minnow_testing_debug.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/tests /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/tests /home/ada/Lessons/CS144-minnow/build/tests/CMakeFiles/minnow_testing_debug.dir/DependInfo.cmake "--color=$(COLOR)" minnow_testing_debug
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/tests /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/tests /home/ada/CS-Systems-Internals/CS144-minnow/build/tests/CMakeFiles/minnow_testing_debug.dir/DependInfo.cmake "--color=$(COLOR)" minnow_testing_debug
 .PHONY : tests/CMakeFiles/minnow_testing_debug.dir/depend
 

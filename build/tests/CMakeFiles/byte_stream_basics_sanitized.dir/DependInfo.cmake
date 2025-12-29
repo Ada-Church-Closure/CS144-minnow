@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ada/Lessons/CS144-minnow/tests/byte_stream_basics.cc" "tests/CMakeFiles/byte_stream_basics_sanitized.dir/byte_stream_basics.cc.o" "gcc" "tests/CMakeFiles/byte_stream_basics_sanitized.dir/byte_stream_basics.cc.o.d"
+  "/home/ada/CS-Systems-Internals/CS144-minnow/tests/byte_stream_basics.cc" "tests/CMakeFiles/byte_stream_basics_sanitized.dir/byte_stream_basics.cc.o" "gcc" "tests/CMakeFiles/byte_stream_basics_sanitized.dir/byte_stream_basics.cc.o.d"
   "" "tests/byte_stream_basics_sanitized" "gcc" "tests/CMakeFiles/byte_stream_basics_sanitized.dir/link.d"
   )
 

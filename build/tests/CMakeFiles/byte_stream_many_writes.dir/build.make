@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Include any dependencies generated for this target.
 include tests/CMakeFiles/byte_stream_many_writes.dir/depend.make
@@ -73,18 +73,18 @@ tests/CMakeFiles/byte_stream_many_writes.dir/codegen:
 .PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/codegen
 
 tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o: tests/CMakeFiles/byte_stream_many_writes.dir/flags.make
-tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o: /home/ada/Lessons/CS144-minnow/tests/byte_stream_many_writes.cc
+tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o: /home/ada/CS-Systems-Internals/CS144-minnow/tests/byte_stream_many_writes.cc
 tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o: tests/CMakeFiles/byte_stream_many_writes.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ada/Lessons/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o -MF CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o.d -o CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o -c /home/ada/Lessons/CS144-minnow/tests/byte_stream_many_writes.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o"
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o -MF CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o.d -o CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.o -c /home/ada/CS-Systems-Internals/CS144-minnow/tests/byte_stream_many_writes.cc
 
 tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.i"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/Lessons/CS144-minnow/tests/byte_stream_many_writes.cc > CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/CS-Systems-Internals/CS144-minnow/tests/byte_stream_many_writes.cc > CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.i
 
 tests/CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.s"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/Lessons/CS144-minnow/tests/byte_stream_many_writes.cc -o CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/CS-Systems-Internals/CS144-minnow/tests/byte_stream_many_writes.cc -o CMakeFiles/byte_stream_many_writes.dir/byte_stream_many_writes.cc.s
 
 # Object files for target byte_stream_many_writes
 byte_stream_many_writes_OBJECTS = \
@@ -100,18 +100,18 @@ tests/byte_stream_many_writes: tests/libminnow_testing_debug.a
 tests/byte_stream_many_writes: src/libminnow_debug.a
 tests/byte_stream_many_writes: util/libutil_debug.a
 tests/byte_stream_many_writes: tests/CMakeFiles/byte_stream_many_writes.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ada/Lessons/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable byte_stream_many_writes"
-	cd /home/ada/Lessons/CS144-minnow/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/byte_stream_many_writes.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable byte_stream_many_writes"
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/byte_stream_many_writes.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tests/CMakeFiles/byte_stream_many_writes.dir/build: tests/byte_stream_many_writes
 .PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/build
 
 tests/CMakeFiles/byte_stream_many_writes.dir/clean:
-	cd /home/ada/Lessons/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/byte_stream_many_writes.dir/cmake_clean.cmake
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/byte_stream_many_writes.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/clean
 
 tests/CMakeFiles/byte_stream_many_writes.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/tests /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/tests /home/ada/Lessons/CS144-minnow/build/tests/CMakeFiles/byte_stream_many_writes.dir/DependInfo.cmake "--color=$(COLOR)" byte_stream_many_writes
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/tests /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/tests /home/ada/CS-Systems-Internals/CS144-minnow/build/tests/CMakeFiles/byte_stream_many_writes.dir/DependInfo.cmake "--color=$(COLOR)" byte_stream_many_writes
 .PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/depend
 

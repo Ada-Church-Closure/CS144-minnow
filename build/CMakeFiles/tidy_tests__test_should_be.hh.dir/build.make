@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Utility rule file for tidy_tests__test_should_be.hh.
 
@@ -67,7 +67,7 @@ include CMakeFiles/tidy_tests__test_should_be.hh.dir/compiler_depend.make
 include CMakeFiles/tidy_tests__test_should_be.hh.dir/progress.make
 
 CMakeFiles/tidy_tests__test_should_be.hh:
-	clang-tidy --quiet -header-filter=.* -p=/home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/tests/test_should_be.hh
+	clang-tidy --quiet -header-filter=.* -p=/home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/tests/test_should_be.hh
 
 CMakeFiles/tidy_tests__test_should_be.hh.dir/codegen:
 .PHONY : CMakeFiles/tidy_tests__test_should_be.hh.dir/codegen
@@ -85,6 +85,6 @@ CMakeFiles/tidy_tests__test_should_be.hh.dir/clean:
 .PHONY : CMakeFiles/tidy_tests__test_should_be.hh.dir/clean
 
 CMakeFiles/tidy_tests__test_should_be.hh.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/CMakeFiles/tidy_tests__test_should_be.hh.dir/DependInfo.cmake "--color=$(COLOR)" tidy_tests__test_should_be.hh
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles/tidy_tests__test_should_be.hh.dir/DependInfo.cmake "--color=$(COLOR)" tidy_tests__test_should_be.hh
 .PHONY : CMakeFiles/tidy_tests__test_should_be.hh.dir/depend
 

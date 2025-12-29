@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Utility rule file for tidy_util__eventloop.cc.
 
@@ -67,7 +67,7 @@ include CMakeFiles/tidy_util__eventloop.cc.dir/compiler_depend.make
 include CMakeFiles/tidy_util__eventloop.cc.dir/progress.make
 
 CMakeFiles/tidy_util__eventloop.cc:
-	clang-tidy --quiet -header-filter=.* -p=/home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/util/eventloop.cc
+	clang-tidy --quiet -header-filter=.* -p=/home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/util/eventloop.cc
 
 CMakeFiles/tidy_util__eventloop.cc.dir/codegen:
 .PHONY : CMakeFiles/tidy_util__eventloop.cc.dir/codegen
@@ -85,6 +85,6 @@ CMakeFiles/tidy_util__eventloop.cc.dir/clean:
 .PHONY : CMakeFiles/tidy_util__eventloop.cc.dir/clean
 
 CMakeFiles/tidy_util__eventloop.cc.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/CMakeFiles/tidy_util__eventloop.cc.dir/DependInfo.cmake "--color=$(COLOR)" tidy_util__eventloop.cc
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles/tidy_util__eventloop.cc.dir/DependInfo.cmake "--color=$(COLOR)" tidy_util__eventloop.cc
 .PHONY : CMakeFiles/tidy_util__eventloop.cc.dir/depend
 

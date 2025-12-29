@@ -51,6 +51,9 @@ public:
   // 这就是我们刚实现的写入字节流
   const Writer& writer() const { return output_.writer(); }
 
+  // 我们需要一个能暴露接口的writer() 来实现设置错误--->是否合理?
+  Writer& writer() { return output_.writer(); }
+
 private:
   ByteStream output_;
   // 维护一些私有变量:

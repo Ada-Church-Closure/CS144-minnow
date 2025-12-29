@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ada/Lessons/CS144-minnow/tests/common.cc" "tests/CMakeFiles/minnow_testing_sanitized.dir/common.cc.o" "gcc" "tests/CMakeFiles/minnow_testing_sanitized.dir/common.cc.o.d"
+  "/home/ada/CS-Systems-Internals/CS144-minnow/tests/common.cc" "tests/CMakeFiles/minnow_testing_sanitized.dir/common.cc.o" "gcc" "tests/CMakeFiles/minnow_testing_sanitized.dir/common.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ada/Lessons/CS144-minnow/apps/tcp_native.cc" "apps/CMakeFiles/tcp_native.dir/tcp_native.cc.o" "gcc" "apps/CMakeFiles/tcp_native.dir/tcp_native.cc.o.d"
+  "/home/ada/CS-Systems-Internals/CS144-minnow/apps/tcp_native.cc" "apps/CMakeFiles/tcp_native.dir/tcp_native.cc.o" "gcc" "apps/CMakeFiles/tcp_native.dir/tcp_native.cc.o.d"
   "" "apps/tcp_native" "gcc" "apps/CMakeFiles/tcp_native.dir/link.d"
   )
 

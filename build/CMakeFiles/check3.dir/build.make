@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Utility rule file for check3.
 
@@ -67,7 +67,7 @@ include CMakeFiles/check3.dir/compiler_depend.make
 include CMakeFiles/check3.dir/progress.make
 
 CMakeFiles/check3:
-	/usr/bin/ctest --output-on-failure --stop-on-failure --timeout 12 -R '^byte_stream_|^reassembler_|^wrapping|^recv|^send'
+	/usr/bin/ctest --output-on-failure --stop-on-failure --timeout 15 -R '^byte_stream_|^reassembler_|^wrapping|^recv|^send|^no_skip'
 
 CMakeFiles/check3.dir/codegen:
 .PHONY : CMakeFiles/check3.dir/codegen
@@ -85,6 +85,6 @@ CMakeFiles/check3.dir/clean:
 .PHONY : CMakeFiles/check3.dir/clean
 
 CMakeFiles/check3.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/CMakeFiles/check3.dir/DependInfo.cmake "--color=$(COLOR)" check3
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles/check3.dir/DependInfo.cmake "--color=$(COLOR)" check3
 .PHONY : CMakeFiles/check3.dir/depend
 

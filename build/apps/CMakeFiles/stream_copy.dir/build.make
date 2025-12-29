@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Include any dependencies generated for this target.
 include apps/CMakeFiles/stream_copy.dir/depend.make
@@ -73,18 +73,18 @@ apps/CMakeFiles/stream_copy.dir/codegen:
 .PHONY : apps/CMakeFiles/stream_copy.dir/codegen
 
 apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o: apps/CMakeFiles/stream_copy.dir/flags.make
-apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o: /home/ada/Lessons/CS144-minnow/apps/bidirectional_stream_copy.cc
+apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o: /home/ada/CS-Systems-Internals/CS144-minnow/apps/bidirectional_stream_copy.cc
 apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o: apps/CMakeFiles/stream_copy.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ada/Lessons/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o"
-	cd /home/ada/Lessons/CS144-minnow/build/apps && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o -MF CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o.d -o CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o -c /home/ada/Lessons/CS144-minnow/apps/bidirectional_stream_copy.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o"
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/apps && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o -MF CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o.d -o CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o -c /home/ada/CS-Systems-Internals/CS144-minnow/apps/bidirectional_stream_copy.cc
 
 apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.i"
-	cd /home/ada/Lessons/CS144-minnow/build/apps && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/Lessons/CS144-minnow/apps/bidirectional_stream_copy.cc > CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/apps && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ada/CS-Systems-Internals/CS144-minnow/apps/bidirectional_stream_copy.cc > CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.i
 
 apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.s"
-	cd /home/ada/Lessons/CS144-minnow/build/apps && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/Lessons/CS144-minnow/apps/bidirectional_stream_copy.cc -o CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/apps && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ada/CS-Systems-Internals/CS144-minnow/apps/bidirectional_stream_copy.cc -o CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.s
 
 # Object files for target stream_copy
 stream_copy_OBJECTS = \
@@ -96,19 +96,19 @@ stream_copy_EXTERNAL_OBJECTS =
 apps/libstream_copy.a: apps/CMakeFiles/stream_copy.dir/bidirectional_stream_copy.cc.o
 apps/libstream_copy.a: apps/CMakeFiles/stream_copy.dir/build.make
 apps/libstream_copy.a: apps/CMakeFiles/stream_copy.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ada/Lessons/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libstream_copy.a"
-	cd /home/ada/Lessons/CS144-minnow/build/apps && $(CMAKE_COMMAND) -P CMakeFiles/stream_copy.dir/cmake_clean_target.cmake
-	cd /home/ada/Lessons/CS144-minnow/build/apps && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stream_copy.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library libstream_copy.a"
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/apps && $(CMAKE_COMMAND) -P CMakeFiles/stream_copy.dir/cmake_clean_target.cmake
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/apps && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/stream_copy.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 apps/CMakeFiles/stream_copy.dir/build: apps/libstream_copy.a
 .PHONY : apps/CMakeFiles/stream_copy.dir/build
 
 apps/CMakeFiles/stream_copy.dir/clean:
-	cd /home/ada/Lessons/CS144-minnow/build/apps && $(CMAKE_COMMAND) -P CMakeFiles/stream_copy.dir/cmake_clean.cmake
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/apps && $(CMAKE_COMMAND) -P CMakeFiles/stream_copy.dir/cmake_clean.cmake
 .PHONY : apps/CMakeFiles/stream_copy.dir/clean
 
 apps/CMakeFiles/stream_copy.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/apps /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/apps /home/ada/Lessons/CS144-minnow/build/apps/CMakeFiles/stream_copy.dir/DependInfo.cmake "--color=$(COLOR)" stream_copy
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/apps /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/apps /home/ada/CS-Systems-Internals/CS144-minnow/build/apps/CMakeFiles/stream_copy.dir/DependInfo.cmake "--color=$(COLOR)" stream_copy
 .PHONY : apps/CMakeFiles/stream_copy.dir/depend
 

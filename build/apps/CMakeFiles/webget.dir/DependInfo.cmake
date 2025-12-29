@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/ada/Lessons/CS144-minnow/apps/webget.cc" "apps/CMakeFiles/webget.dir/webget.cc.o" "gcc" "apps/CMakeFiles/webget.dir/webget.cc.o.d"
+  "/home/ada/CS-Systems-Internals/CS144-minnow/apps/webget.cc" "apps/CMakeFiles/webget.dir/webget.cc.o" "gcc" "apps/CMakeFiles/webget.dir/webget.cc.o.d"
   "" "apps/webget" "gcc" "apps/CMakeFiles/webget.dir/link.d"
   )
 

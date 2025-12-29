@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/ada/Lessons/CS144-minnow/util -I/home/ada/Lessons/CS144-minnow/src
+CXX_INCLUDES = -I/home/ada/CS-Systems-Internals/CS144-minnow/util -I/home/ada/CS-Systems-Internals/CS144-minnow/src
 
-CXX_FLAGS =  -Wall -Wpedantic -Wextra -Weffc++ -Werror -Wshadow -Wpointer-arith -Wcast-qual -Wformat=2 -Wno-unqualified-std-cast-call -Wno-non-virtual-dtor -g -std=gnu++20 -fno-sanitize-recover=all -fsanitize=undefined -fsanitize=address
+CXX_FLAGS =  -Wall -Wpedantic -Wextra -Weffc++ -Werror -Wshadow -Wpointer-arith -Wcast-qual -Wformat=2 -Wno-unqualified-std-cast-call -Wno-non-virtual-dtor -DHAVE_WRAP32 -DHAVE_TCP_SENDER_MESSAGE -g -std=gnu++23 -fno-sanitize-recover=all -fsanitize=undefined -fsanitize=address
 

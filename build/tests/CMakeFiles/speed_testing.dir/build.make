@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ada/Lessons/CS144-minnow
+CMAKE_SOURCE_DIR = /home/ada/CS-Systems-Internals/CS144-minnow
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ada/Lessons/CS144-minnow/build
+CMAKE_BINARY_DIR = /home/ada/CS-Systems-Internals/CS144-minnow/build
 
 # Utility rule file for speed_testing.
 
@@ -77,10 +77,10 @@ tests/CMakeFiles/speed_testing.dir/build: speed_testing
 .PHONY : tests/CMakeFiles/speed_testing.dir/build
 
 tests/CMakeFiles/speed_testing.dir/clean:
-	cd /home/ada/Lessons/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/speed_testing.dir/cmake_clean.cmake
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build/tests && $(CMAKE_COMMAND) -P CMakeFiles/speed_testing.dir/cmake_clean.cmake
 .PHONY : tests/CMakeFiles/speed_testing.dir/clean
 
 tests/CMakeFiles/speed_testing.dir/depend:
-	cd /home/ada/Lessons/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/Lessons/CS144-minnow /home/ada/Lessons/CS144-minnow/tests /home/ada/Lessons/CS144-minnow/build /home/ada/Lessons/CS144-minnow/build/tests /home/ada/Lessons/CS144-minnow/build/tests/CMakeFiles/speed_testing.dir/DependInfo.cmake "--color=$(COLOR)" speed_testing
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ada/CS-Systems-Internals/CS144-minnow /home/ada/CS-Systems-Internals/CS144-minnow/tests /home/ada/CS-Systems-Internals/CS144-minnow/build /home/ada/CS-Systems-Internals/CS144-minnow/build/tests /home/ada/CS-Systems-Internals/CS144-minnow/build/tests/CMakeFiles/speed_testing.dir/DependInfo.cmake "--color=$(COLOR)" speed_testing
 .PHONY : tests/CMakeFiles/speed_testing.dir/depend
 

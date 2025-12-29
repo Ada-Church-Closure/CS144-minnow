@@ -27,4 +27,10 @@ public:
 
 private:
   Reassembler reassembler_;
+
+  // 我们维护的基准点ISN
+  std::optional<Wrap32> _isn {};
+
+  // 之前是否收到了syn标志位
+  bool _syn_received = { false };
 };
