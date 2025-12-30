@@ -179,6 +179,19 @@ tidy_apps__ip_raw.cc/fast:
 .PHONY : tidy_apps__ip_raw.cc/fast
 
 #=============================================================================
+# Target rules for targets named tidy_apps__tcp_ipv4.cc
+
+# Build rule for target.
+tidy_apps__tcp_ipv4.cc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tidy_apps__tcp_ipv4.cc
+.PHONY : tidy_apps__tcp_ipv4.cc
+
+# fast build rule for target.
+tidy_apps__tcp_ipv4.cc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build.make CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build
+.PHONY : tidy_apps__tcp_ipv4.cc/fast
+
+#=============================================================================
 # Target rules for targets named tidy_apps__tcp_native.cc
 
 # Build rule for target.
@@ -270,6 +283,19 @@ tidy_src__reassembler.hh/fast:
 .PHONY : tidy_src__reassembler.hh/fast
 
 #=============================================================================
+# Target rules for targets named tidy_src__tcp_minnow_socket.cc
+
+# Build rule for target.
+tidy_src__tcp_minnow_socket.cc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tidy_src__tcp_minnow_socket.cc
+.PHONY : tidy_src__tcp_minnow_socket.cc
+
+# fast build rule for target.
+tidy_src__tcp_minnow_socket.cc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build.make CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build
+.PHONY : tidy_src__tcp_minnow_socket.cc/fast
+
+#=============================================================================
 # Target rules for targets named tidy_src__tcp_receiver.cc
 
 # Build rule for target.
@@ -294,6 +320,32 @@ tidy_src__tcp_receiver.hh: cmake_check_build_system
 tidy_src__tcp_receiver.hh/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_receiver.hh.dir/build.make CMakeFiles/tidy_src__tcp_receiver.hh.dir/build
 .PHONY : tidy_src__tcp_receiver.hh/fast
+
+#=============================================================================
+# Target rules for targets named tidy_src__tcp_sender.cc
+
+# Build rule for target.
+tidy_src__tcp_sender.cc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tidy_src__tcp_sender.cc
+.PHONY : tidy_src__tcp_sender.cc
+
+# fast build rule for target.
+tidy_src__tcp_sender.cc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.cc.dir/build.make CMakeFiles/tidy_src__tcp_sender.cc.dir/build
+.PHONY : tidy_src__tcp_sender.cc/fast
+
+#=============================================================================
+# Target rules for targets named tidy_src__tcp_sender.hh
+
+# Build rule for target.
+tidy_src__tcp_sender.hh: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tidy_src__tcp_sender.hh
+.PHONY : tidy_src__tcp_sender.hh
+
+# fast build rule for target.
+tidy_src__tcp_sender.hh/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.hh.dir/build.make CMakeFiles/tidy_src__tcp_sender.hh.dir/build
+.PHONY : tidy_src__tcp_sender.hh/fast
 
 #=============================================================================
 # Target rules for targets named tidy_src__wrapping_integers.cc
@@ -2792,6 +2844,188 @@ recv_special/fast:
 .PHONY : recv_special/fast
 
 #=============================================================================
+# Target rules for targets named send_connect_sanitized
+
+# Build rule for target.
+send_connect_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_connect_sanitized
+.PHONY : send_connect_sanitized
+
+# fast build rule for target.
+send_connect_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect_sanitized.dir/build.make tests/CMakeFiles/send_connect_sanitized.dir/build
+.PHONY : send_connect_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_connect
+
+# Build rule for target.
+send_connect: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_connect
+.PHONY : send_connect
+
+# fast build rule for target.
+send_connect/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect.dir/build.make tests/CMakeFiles/send_connect.dir/build
+.PHONY : send_connect/fast
+
+#=============================================================================
+# Target rules for targets named send_transmit_sanitized
+
+# Build rule for target.
+send_transmit_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_transmit_sanitized
+.PHONY : send_transmit_sanitized
+
+# fast build rule for target.
+send_transmit_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit_sanitized.dir/build.make tests/CMakeFiles/send_transmit_sanitized.dir/build
+.PHONY : send_transmit_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_transmit
+
+# Build rule for target.
+send_transmit: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_transmit
+.PHONY : send_transmit
+
+# fast build rule for target.
+send_transmit/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit.dir/build.make tests/CMakeFiles/send_transmit.dir/build
+.PHONY : send_transmit/fast
+
+#=============================================================================
+# Target rules for targets named send_window_sanitized
+
+# Build rule for target.
+send_window_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_window_sanitized
+.PHONY : send_window_sanitized
+
+# fast build rule for target.
+send_window_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window_sanitized.dir/build.make tests/CMakeFiles/send_window_sanitized.dir/build
+.PHONY : send_window_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_window
+
+# Build rule for target.
+send_window: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_window
+.PHONY : send_window
+
+# fast build rule for target.
+send_window/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window.dir/build.make tests/CMakeFiles/send_window.dir/build
+.PHONY : send_window/fast
+
+#=============================================================================
+# Target rules for targets named send_ack_sanitized
+
+# Build rule for target.
+send_ack_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_ack_sanitized
+.PHONY : send_ack_sanitized
+
+# fast build rule for target.
+send_ack_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack_sanitized.dir/build.make tests/CMakeFiles/send_ack_sanitized.dir/build
+.PHONY : send_ack_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_ack
+
+# Build rule for target.
+send_ack: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_ack
+.PHONY : send_ack
+
+# fast build rule for target.
+send_ack/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack.dir/build.make tests/CMakeFiles/send_ack.dir/build
+.PHONY : send_ack/fast
+
+#=============================================================================
+# Target rules for targets named send_close_sanitized
+
+# Build rule for target.
+send_close_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_close_sanitized
+.PHONY : send_close_sanitized
+
+# fast build rule for target.
+send_close_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close_sanitized.dir/build.make tests/CMakeFiles/send_close_sanitized.dir/build
+.PHONY : send_close_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_close
+
+# Build rule for target.
+send_close: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_close
+.PHONY : send_close
+
+# fast build rule for target.
+send_close/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close.dir/build.make tests/CMakeFiles/send_close.dir/build
+.PHONY : send_close/fast
+
+#=============================================================================
+# Target rules for targets named send_retx_sanitized
+
+# Build rule for target.
+send_retx_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_retx_sanitized
+.PHONY : send_retx_sanitized
+
+# fast build rule for target.
+send_retx_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx_sanitized.dir/build.make tests/CMakeFiles/send_retx_sanitized.dir/build
+.PHONY : send_retx_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_retx
+
+# Build rule for target.
+send_retx: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_retx
+.PHONY : send_retx
+
+# fast build rule for target.
+send_retx/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx.dir/build.make tests/CMakeFiles/send_retx.dir/build
+.PHONY : send_retx/fast
+
+#=============================================================================
+# Target rules for targets named send_extra_sanitized
+
+# Build rule for target.
+send_extra_sanitized: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_extra_sanitized
+.PHONY : send_extra_sanitized
+
+# fast build rule for target.
+send_extra_sanitized/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra_sanitized.dir/build.make tests/CMakeFiles/send_extra_sanitized.dir/build
+.PHONY : send_extra_sanitized/fast
+
+#=============================================================================
+# Target rules for targets named send_extra
+
+# Build rule for target.
+send_extra: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 send_extra
+.PHONY : send_extra
+
+# fast build rule for target.
+send_extra/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra.dir/build.make tests/CMakeFiles/send_extra.dir/build
+.PHONY : send_extra/fast
+
+#=============================================================================
 # Target rules for targets named no_skip_sanitized
 
 # Build rule for target.
@@ -2896,6 +3130,19 @@ tcp_native/fast:
 .PHONY : tcp_native/fast
 
 #=============================================================================
+# Target rules for targets named tcp_ipv4
+
+# Build rule for target.
+tcp_ipv4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp_ipv4
+.PHONY : tcp_ipv4
+
+# fast build rule for target.
+tcp_ipv4/fast:
+	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/build
+.PHONY : tcp_ipv4/fast
+
+#=============================================================================
 # Target rules for targets named ip_raw
 
 # Build rule for target.
@@ -2962,6 +3209,7 @@ help:
 	@echo "... tidy_apps__bidirectional_stream_copy.cc"
 	@echo "... tidy_apps__bidirectional_stream_copy.hh"
 	@echo "... tidy_apps__ip_raw.cc"
+	@echo "... tidy_apps__tcp_ipv4.cc"
 	@echo "... tidy_apps__tcp_native.cc"
 	@echo "... tidy_apps__webget.cc"
 	@echo "... tidy_src__byte_stream.cc"
@@ -2969,8 +3217,11 @@ help:
 	@echo "... tidy_src__byte_stream_helpers.cc"
 	@echo "... tidy_src__reassembler.cc"
 	@echo "... tidy_src__reassembler.hh"
+	@echo "... tidy_src__tcp_minnow_socket.cc"
 	@echo "... tidy_src__tcp_receiver.cc"
 	@echo "... tidy_src__tcp_receiver.hh"
+	@echo "... tidy_src__tcp_sender.cc"
+	@echo "... tidy_src__tcp_sender.hh"
 	@echo "... tidy_src__wrapping_integers.cc"
 	@echo "... tidy_src__wrapping_integers.hh"
 	@echo "... tidy_tests__byte_stream_basics.cc"
@@ -3114,8 +3365,23 @@ help:
 	@echo "... recv_transmit_sanitized"
 	@echo "... recv_window"
 	@echo "... recv_window_sanitized"
+	@echo "... send_ack"
+	@echo "... send_ack_sanitized"
+	@echo "... send_close"
+	@echo "... send_close_sanitized"
+	@echo "... send_connect"
+	@echo "... send_connect_sanitized"
+	@echo "... send_extra"
+	@echo "... send_extra_sanitized"
+	@echo "... send_retx"
+	@echo "... send_retx_sanitized"
+	@echo "... send_transmit"
+	@echo "... send_transmit_sanitized"
+	@echo "... send_window"
+	@echo "... send_window_sanitized"
 	@echo "... stream_copy"
 	@echo "... stream_sanitized"
+	@echo "... tcp_ipv4"
 	@echo "... tcp_native"
 	@echo "... util_debug"
 	@echo "... util_optimized"

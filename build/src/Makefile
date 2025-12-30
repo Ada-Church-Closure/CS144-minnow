@@ -258,6 +258,36 @@ reassembler.cc.s:
 	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/reassembler.cc.s
 .PHONY : reassembler.cc.s
 
+tcp_minnow_socket.o: tcp_minnow_socket.cc.o
+.PHONY : tcp_minnow_socket.o
+
+# target to build an object file
+tcp_minnow_socket.cc.o:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/tcp_minnow_socket.cc.o
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_minnow_socket.cc.o
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_minnow_socket.cc.o
+.PHONY : tcp_minnow_socket.cc.o
+
+tcp_minnow_socket.i: tcp_minnow_socket.cc.i
+.PHONY : tcp_minnow_socket.i
+
+# target to preprocess a source file
+tcp_minnow_socket.cc.i:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/tcp_minnow_socket.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_minnow_socket.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_minnow_socket.cc.i
+.PHONY : tcp_minnow_socket.cc.i
+
+tcp_minnow_socket.s: tcp_minnow_socket.cc.s
+.PHONY : tcp_minnow_socket.s
+
+# target to generate assembly for a file
+tcp_minnow_socket.cc.s:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/tcp_minnow_socket.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_minnow_socket.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_minnow_socket.cc.s
+.PHONY : tcp_minnow_socket.cc.s
+
 tcp_receiver.o: tcp_receiver.cc.o
 .PHONY : tcp_receiver.o
 
@@ -287,6 +317,36 @@ tcp_receiver.cc.s:
 	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_receiver.cc.s
 	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_receiver.cc.s
 .PHONY : tcp_receiver.cc.s
+
+tcp_sender.o: tcp_sender.cc.o
+.PHONY : tcp_sender.o
+
+# target to build an object file
+tcp_sender.cc.o:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/tcp_sender.cc.o
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_sender.cc.o
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_sender.cc.o
+.PHONY : tcp_sender.cc.o
+
+tcp_sender.i: tcp_sender.cc.i
+.PHONY : tcp_sender.i
+
+# target to preprocess a source file
+tcp_sender.cc.i:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/tcp_sender.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_sender.cc.i
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_sender.cc.i
+.PHONY : tcp_sender.cc.i
+
+tcp_sender.s: tcp_sender.cc.s
+.PHONY : tcp_sender.s
+
+# target to generate assembly for a file
+tcp_sender.cc.s:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/tcp_sender.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/tcp_sender.cc.s
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/tcp_sender.cc.s
+.PHONY : tcp_sender.cc.s
 
 wrapping_integers.o: wrapping_integers.cc.o
 .PHONY : wrapping_integers.o
@@ -339,9 +399,15 @@ help:
 	@echo "... reassembler.o"
 	@echo "... reassembler.i"
 	@echo "... reassembler.s"
+	@echo "... tcp_minnow_socket.o"
+	@echo "... tcp_minnow_socket.i"
+	@echo "... tcp_minnow_socket.s"
 	@echo "... tcp_receiver.o"
 	@echo "... tcp_receiver.i"
 	@echo "... tcp_receiver.s"
+	@echo "... tcp_sender.o"
+	@echo "... tcp_sender.i"
+	@echo "... tcp_sender.s"
 	@echo "... wrapping_integers.o"
 	@echo "... wrapping_integers.i"
 	@echo "... wrapping_integers.s"

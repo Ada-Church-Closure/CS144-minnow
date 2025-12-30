@@ -88,6 +88,7 @@ clean: CMakeFiles/format.dir/clean
 clean: CMakeFiles/tidy_apps__bidirectional_stream_copy.cc.dir/clean
 clean: CMakeFiles/tidy_apps__bidirectional_stream_copy.hh.dir/clean
 clean: CMakeFiles/tidy_apps__ip_raw.cc.dir/clean
+clean: CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/clean
 clean: CMakeFiles/tidy_apps__tcp_native.cc.dir/clean
 clean: CMakeFiles/tidy_apps__webget.cc.dir/clean
 clean: CMakeFiles/tidy_src__byte_stream.cc.dir/clean
@@ -95,8 +96,11 @@ clean: CMakeFiles/tidy_src__byte_stream.hh.dir/clean
 clean: CMakeFiles/tidy_src__byte_stream_helpers.cc.dir/clean
 clean: CMakeFiles/tidy_src__reassembler.cc.dir/clean
 clean: CMakeFiles/tidy_src__reassembler.hh.dir/clean
+clean: CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/clean
 clean: CMakeFiles/tidy_src__tcp_receiver.cc.dir/clean
 clean: CMakeFiles/tidy_src__tcp_receiver.hh.dir/clean
+clean: CMakeFiles/tidy_src__tcp_sender.cc.dir/clean
+clean: CMakeFiles/tidy_src__tcp_sender.hh.dir/clean
 clean: CMakeFiles/tidy_src__wrapping_integers.cc.dir/clean
 clean: CMakeFiles/tidy_src__wrapping_integers.hh.dir/clean
 clean: CMakeFiles/tidy_tests__byte_stream_basics.cc.dir/clean
@@ -242,6 +246,7 @@ clean: apps/clean
 apps/all: apps/CMakeFiles/stream_copy.dir/all
 apps/all: apps/CMakeFiles/webget.dir/all
 apps/all: apps/CMakeFiles/tcp_native.dir/all
+apps/all: apps/CMakeFiles/tcp_ipv4.dir/all
 apps/all: apps/CMakeFiles/ip_raw.dir/all
 .PHONY : apps/all
 
@@ -249,6 +254,7 @@ apps/all: apps/CMakeFiles/ip_raw.dir/all
 apps/codegen: apps/CMakeFiles/stream_copy.dir/codegen
 apps/codegen: apps/CMakeFiles/webget.dir/codegen
 apps/codegen: apps/CMakeFiles/tcp_native.dir/codegen
+apps/codegen: apps/CMakeFiles/tcp_ipv4.dir/codegen
 apps/codegen: apps/CMakeFiles/ip_raw.dir/codegen
 .PHONY : apps/codegen
 
@@ -261,6 +267,7 @@ apps/clean: apps/CMakeFiles/stream_copy.dir/clean
 apps/clean: apps/CMakeFiles/stream_sanitized.dir/clean
 apps/clean: apps/CMakeFiles/webget.dir/clean
 apps/clean: apps/CMakeFiles/tcp_native.dir/clean
+apps/clean: apps/CMakeFiles/tcp_ipv4.dir/clean
 apps/clean: apps/CMakeFiles/ip_raw.dir/clean
 .PHONY : apps/clean
 
@@ -355,6 +362,20 @@ tests/clean: tests/CMakeFiles/recv_close_sanitized.dir/clean
 tests/clean: tests/CMakeFiles/recv_close.dir/clean
 tests/clean: tests/CMakeFiles/recv_special_sanitized.dir/clean
 tests/clean: tests/CMakeFiles/recv_special.dir/clean
+tests/clean: tests/CMakeFiles/send_connect_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_connect.dir/clean
+tests/clean: tests/CMakeFiles/send_transmit_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_transmit.dir/clean
+tests/clean: tests/CMakeFiles/send_window_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_window.dir/clean
+tests/clean: tests/CMakeFiles/send_ack_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_ack.dir/clean
+tests/clean: tests/CMakeFiles/send_close_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_close.dir/clean
+tests/clean: tests/CMakeFiles/send_retx_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_retx.dir/clean
+tests/clean: tests/CMakeFiles/send_extra_sanitized.dir/clean
+tests/clean: tests/CMakeFiles/send_extra.dir/clean
 tests/clean: tests/CMakeFiles/no_skip_sanitized.dir/clean
 tests/clean: tests/CMakeFiles/no_skip.dir/clean
 tests/clean: tests/CMakeFiles/byte_stream_speed_test.dir/clean
@@ -389,7 +410,7 @@ util/clean: util/CMakeFiles/util_optimized.dir/clean
 CMakeFiles/format.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/format.dir/build.make CMakeFiles/format.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/format.dir/build.make CMakeFiles/format.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=14 "Built target format"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=12 "Built target format"
 .PHONY : CMakeFiles/format.dir/all
 
 # Build rule for subdir invocation for target.
@@ -406,7 +427,7 @@ format: CMakeFiles/format.dir/rule
 # codegen rule for target.
 CMakeFiles/format.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/format.dir/build.make CMakeFiles/format.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=14 "Finished codegen for target format"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=12 "Finished codegen for target format"
 .PHONY : CMakeFiles/format.dir/codegen
 
 # clean rule for target.
@@ -509,6 +530,38 @@ CMakeFiles/tidy_apps__ip_raw.cc.dir/codegen:
 CMakeFiles/tidy_apps__ip_raw.cc.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_apps__ip_raw.cc.dir/build.make CMakeFiles/tidy_apps__ip_raw.cc.dir/clean
 .PHONY : CMakeFiles/tidy_apps__ip_raw.cc.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tidy_apps__tcp_ipv4.cc.dir
+
+# All Build rule for target.
+CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build.make CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build.make CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target tidy_apps__tcp_ipv4.cc"
+.PHONY : CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/rule
+
+# Convenience name for target.
+tidy_apps__tcp_ipv4.cc: CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/rule
+.PHONY : tidy_apps__tcp_ipv4.cc
+
+# codegen rule for target.
+CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build.make CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target tidy_apps__tcp_ipv4.cc"
+.PHONY : CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/codegen
+
+# clean rule for target.
+CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/build.make CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/clean
+.PHONY : CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/tidy_apps__tcp_native.cc.dir
@@ -735,6 +788,38 @@ CMakeFiles/tidy_src__reassembler.hh.dir/clean:
 .PHONY : CMakeFiles/tidy_src__reassembler.hh.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir
+
+# All Build rule for target.
+CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build.make CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build.make CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target tidy_src__tcp_minnow_socket.cc"
+.PHONY : CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/rule
+
+# Convenience name for target.
+tidy_src__tcp_minnow_socket.cc: CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/rule
+.PHONY : tidy_src__tcp_minnow_socket.cc
+
+# codegen rule for target.
+CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build.make CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target tidy_src__tcp_minnow_socket.cc"
+.PHONY : CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/codegen
+
+# clean rule for target.
+CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/build.make CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/clean
+.PHONY : CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/tidy_src__tcp_receiver.cc.dir
 
 # All Build rule for target.
@@ -797,6 +882,70 @@ CMakeFiles/tidy_src__tcp_receiver.hh.dir/codegen:
 CMakeFiles/tidy_src__tcp_receiver.hh.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_receiver.hh.dir/build.make CMakeFiles/tidy_src__tcp_receiver.hh.dir/clean
 .PHONY : CMakeFiles/tidy_src__tcp_receiver.hh.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tidy_src__tcp_sender.cc.dir
+
+# All Build rule for target.
+CMakeFiles/tidy_src__tcp_sender.cc.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.cc.dir/build.make CMakeFiles/tidy_src__tcp_sender.cc.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.cc.dir/build.make CMakeFiles/tidy_src__tcp_sender.cc.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target tidy_src__tcp_sender.cc"
+.PHONY : CMakeFiles/tidy_src__tcp_sender.cc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tidy_src__tcp_sender.cc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tidy_src__tcp_sender.cc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : CMakeFiles/tidy_src__tcp_sender.cc.dir/rule
+
+# Convenience name for target.
+tidy_src__tcp_sender.cc: CMakeFiles/tidy_src__tcp_sender.cc.dir/rule
+.PHONY : tidy_src__tcp_sender.cc
+
+# codegen rule for target.
+CMakeFiles/tidy_src__tcp_sender.cc.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.cc.dir/build.make CMakeFiles/tidy_src__tcp_sender.cc.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target tidy_src__tcp_sender.cc"
+.PHONY : CMakeFiles/tidy_src__tcp_sender.cc.dir/codegen
+
+# clean rule for target.
+CMakeFiles/tidy_src__tcp_sender.cc.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.cc.dir/build.make CMakeFiles/tidy_src__tcp_sender.cc.dir/clean
+.PHONY : CMakeFiles/tidy_src__tcp_sender.cc.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/tidy_src__tcp_sender.hh.dir
+
+# All Build rule for target.
+CMakeFiles/tidy_src__tcp_sender.hh.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.hh.dir/build.make CMakeFiles/tidy_src__tcp_sender.hh.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.hh.dir/build.make CMakeFiles/tidy_src__tcp_sender.hh.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target tidy_src__tcp_sender.hh"
+.PHONY : CMakeFiles/tidy_src__tcp_sender.hh.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/tidy_src__tcp_sender.hh.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/tidy_src__tcp_sender.hh.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : CMakeFiles/tidy_src__tcp_sender.hh.dir/rule
+
+# Convenience name for target.
+tidy_src__tcp_sender.hh: CMakeFiles/tidy_src__tcp_sender.hh.dir/rule
+.PHONY : tidy_src__tcp_sender.hh
+
+# codegen rule for target.
+CMakeFiles/tidy_src__tcp_sender.hh.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.hh.dir/build.make CMakeFiles/tidy_src__tcp_sender.hh.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target tidy_src__tcp_sender.hh"
+.PHONY : CMakeFiles/tidy_src__tcp_sender.hh.dir/codegen
+
+# clean rule for target.
+CMakeFiles/tidy_src__tcp_sender.hh.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy_src__tcp_sender.hh.dir/build.make CMakeFiles/tidy_src__tcp_sender.hh.dir/clean
+.PHONY : CMakeFiles/tidy_src__tcp_sender.hh.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/tidy_src__wrapping_integers.cc.dir
@@ -3781,7 +3930,9 @@ CMakeFiles/tidy_util__udinfo.hh.dir/clean:
 CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__byte_stream.cc.dir/all
 CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__byte_stream_helpers.cc.dir/all
 CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__reassembler.cc.dir/all
+CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all
 CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__tcp_receiver.cc.dir/all
+CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__tcp_sender.cc.dir/all
 CMakeFiles/tidy.dir/all: CMakeFiles/tidy_src__wrapping_integers.cc.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy.dir/build.make CMakeFiles/tidy.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy.dir/build.make CMakeFiles/tidy.dir/build
@@ -3803,7 +3954,9 @@ tidy: CMakeFiles/tidy.dir/rule
 CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__byte_stream.cc.dir/all
 CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__byte_stream_helpers.cc.dir/all
 CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__reassembler.cc.dir/all
+CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all
 CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__tcp_receiver.cc.dir/all
+CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__tcp_sender.cc.dir/all
 CMakeFiles/tidy.dir/codegen: CMakeFiles/tidy_src__wrapping_integers.cc.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tidy.dir/build.make CMakeFiles/tidy.dir/codegen
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target tidy"
@@ -3821,6 +3974,7 @@ CMakeFiles/tidy.dir/clean:
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_apps__bidirectional_stream_copy.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_apps__bidirectional_stream_copy.hh.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_apps__ip_raw.cc.dir/all
+CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_apps__tcp_native.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_apps__webget.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__byte_stream.cc.dir/all
@@ -3828,8 +3982,11 @@ CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__byte_stream.hh.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__byte_stream_helpers.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__reassembler.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__reassembler.hh.dir/all
+CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__tcp_receiver.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__tcp_receiver.hh.dir/all
+CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__tcp_sender.cc.dir/all
+CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__tcp_sender.hh.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__wrapping_integers.cc.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_src__wrapping_integers.hh.dir/all
 CMakeFiles/tidy-all.dir/all: CMakeFiles/tidy_tests__byte_stream_basics.cc.dir/all
@@ -3943,6 +4100,7 @@ tidy-all: CMakeFiles/tidy-all.dir/rule
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_apps__bidirectional_stream_copy.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_apps__bidirectional_stream_copy.hh.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_apps__ip_raw.cc.dir/all
+CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_apps__tcp_ipv4.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_apps__tcp_native.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_apps__webget.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__byte_stream.cc.dir/all
@@ -3950,8 +4108,11 @@ CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__byte_stream.hh.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__byte_stream_helpers.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__reassembler.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__reassembler.hh.dir/all
+CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__tcp_minnow_socket.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__tcp_receiver.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__tcp_receiver.hh.dir/all
+CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__tcp_sender.cc.dir/all
+CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__tcp_sender.hh.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__wrapping_integers.cc.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_src__wrapping_integers.hh.dir/all
 CMakeFiles/tidy-all.dir/codegen: CMakeFiles/tidy_tests__byte_stream_basics.cc.dir/all
@@ -5245,12 +5406,12 @@ CMakeFiles/speed.dir/clean:
 util/CMakeFiles/util_debug.dir/all:
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_debug.dir/build.make util/CMakeFiles/util_debug.dir/depend
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_debug.dir/build.make util/CMakeFiles/util_debug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=63,64,65,66,67,68,69,70,71 "Built target util_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=69,70,71,72,73,74,75,76 "Built target util_debug"
 .PHONY : util/CMakeFiles/util_debug.dir/all
 
 # Build rule for subdir invocation for target.
 util/CMakeFiles/util_debug.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 util/CMakeFiles/util_debug.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : util/CMakeFiles/util_debug.dir/rule
@@ -5262,7 +5423,7 @@ util_debug: util/CMakeFiles/util_debug.dir/rule
 # codegen rule for target.
 util/CMakeFiles/util_debug.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_debug.dir/build.make util/CMakeFiles/util_debug.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=63,64,65,66,67,68,69,70,71 "Finished codegen for target util_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=69,70,71,72,73,74,75,76 "Finished codegen for target util_debug"
 .PHONY : util/CMakeFiles/util_debug.dir/codegen
 
 # clean rule for target.
@@ -5277,12 +5438,12 @@ util/CMakeFiles/util_debug.dir/clean:
 util/CMakeFiles/util_sanitized.dir/all:
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_sanitized.dir/build.make util/CMakeFiles/util_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_sanitized.dir/build.make util/CMakeFiles/util_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=80,81,82,83,84,85,86,87,88 "Built target util_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=84,85,86,87,88,89,90 "Built target util_sanitized"
 .PHONY : util/CMakeFiles/util_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 util/CMakeFiles/util_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 util/CMakeFiles/util_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : util/CMakeFiles/util_sanitized.dir/rule
@@ -5294,7 +5455,7 @@ util_sanitized: util/CMakeFiles/util_sanitized.dir/rule
 # codegen rule for target.
 util/CMakeFiles/util_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_sanitized.dir/build.make util/CMakeFiles/util_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=80,81,82,83,84,85,86,87,88 "Finished codegen for target util_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=84,85,86,87,88,89,90 "Finished codegen for target util_sanitized"
 .PHONY : util/CMakeFiles/util_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5309,12 +5470,12 @@ util/CMakeFiles/util_sanitized.dir/clean:
 util/CMakeFiles/util_optimized.dir/all:
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_optimized.dir/build.make util/CMakeFiles/util_optimized.dir/depend
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_optimized.dir/build.make util/CMakeFiles/util_optimized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=72,73,74,75,76,77,78,79 "Built target util_optimized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=77,78,79,80,81,82,83 "Built target util_optimized"
 .PHONY : util/CMakeFiles/util_optimized.dir/all
 
 # Build rule for subdir invocation for target.
 util/CMakeFiles/util_optimized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 util/CMakeFiles/util_optimized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : util/CMakeFiles/util_optimized.dir/rule
@@ -5326,7 +5487,7 @@ util_optimized: util/CMakeFiles/util_optimized.dir/rule
 # codegen rule for target.
 util/CMakeFiles/util_optimized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f util/CMakeFiles/util_optimized.dir/build.make util/CMakeFiles/util_optimized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=72,73,74,75,76,77,78,79 "Finished codegen for target util_optimized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=77,78,79,80,81,82,83 "Finished codegen for target util_optimized"
 .PHONY : util/CMakeFiles/util_optimized.dir/codegen
 
 # clean rule for target.
@@ -5341,12 +5502,12 @@ util/CMakeFiles/util_optimized.dir/clean:
 src/CMakeFiles/minnow_debug.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=16,17,18 "Built target minnow_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=13,14,15,16 "Built target minnow_debug"
 .PHONY : src/CMakeFiles/minnow_debug.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/minnow_debug.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/minnow_debug.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/minnow_debug.dir/rule
@@ -5358,7 +5519,7 @@ minnow_debug: src/CMakeFiles/minnow_debug.dir/rule
 # codegen rule for target.
 src/CMakeFiles/minnow_debug.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_debug.dir/build.make src/CMakeFiles/minnow_debug.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=16,17,18 "Finished codegen for target minnow_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=13,14,15,16 "Finished codegen for target minnow_debug"
 .PHONY : src/CMakeFiles/minnow_debug.dir/codegen
 
 # clean rule for target.
@@ -5373,7 +5534,7 @@ src/CMakeFiles/minnow_debug.dir/clean:
 src/CMakeFiles/minnow_sanitized.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=22,23,24 "Built target minnow_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=21,22,23 "Built target minnow_sanitized"
 .PHONY : src/CMakeFiles/minnow_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5390,7 +5551,7 @@ minnow_sanitized: src/CMakeFiles/minnow_sanitized.dir/rule
 # codegen rule for target.
 src/CMakeFiles/minnow_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_sanitized.dir/build.make src/CMakeFiles/minnow_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=22,23,24 "Finished codegen for target minnow_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=21,22,23 "Finished codegen for target minnow_sanitized"
 .PHONY : src/CMakeFiles/minnow_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5405,12 +5566,12 @@ src/CMakeFiles/minnow_sanitized.dir/clean:
 src/CMakeFiles/minnow_optimized.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=19,20,21 "Built target minnow_optimized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=17,18,19,20 "Built target minnow_optimized"
 .PHONY : src/CMakeFiles/minnow_optimized.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/minnow_optimized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/minnow_optimized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/minnow_optimized.dir/rule
@@ -5422,7 +5583,7 @@ minnow_optimized: src/CMakeFiles/minnow_optimized.dir/rule
 # codegen rule for target.
 src/CMakeFiles/minnow_optimized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/minnow_optimized.dir/build.make src/CMakeFiles/minnow_optimized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=19,20,21 "Finished codegen for target minnow_optimized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=17,18,19,20 "Finished codegen for target minnow_optimized"
 .PHONY : src/CMakeFiles/minnow_optimized.dir/codegen
 
 # clean rule for target.
@@ -5437,7 +5598,7 @@ src/CMakeFiles/minnow_optimized.dir/clean:
 tests/CMakeFiles/minnow_testing_debug.dir/all:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/minnow_testing_debug.dir/build.make tests/CMakeFiles/minnow_testing_debug.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/minnow_testing_debug.dir/build.make tests/CMakeFiles/minnow_testing_debug.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=25 "Built target minnow_testing_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=24 "Built target minnow_testing_debug"
 .PHONY : tests/CMakeFiles/minnow_testing_debug.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5454,7 +5615,7 @@ minnow_testing_debug: tests/CMakeFiles/minnow_testing_debug.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/minnow_testing_debug.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/minnow_testing_debug.dir/build.make tests/CMakeFiles/minnow_testing_debug.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=25 "Finished codegen for target minnow_testing_debug"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=24 "Finished codegen for target minnow_testing_debug"
 .PHONY : tests/CMakeFiles/minnow_testing_debug.dir/codegen
 
 # clean rule for target.
@@ -5469,7 +5630,7 @@ tests/CMakeFiles/minnow_testing_debug.dir/clean:
 tests/CMakeFiles/minnow_testing_sanitized.dir/all:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/minnow_testing_sanitized.dir/build.make tests/CMakeFiles/minnow_testing_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/minnow_testing_sanitized.dir/build.make tests/CMakeFiles/minnow_testing_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=26 "Built target minnow_testing_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=25 "Built target minnow_testing_sanitized"
 .PHONY : tests/CMakeFiles/minnow_testing_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5486,7 +5647,7 @@ minnow_testing_sanitized: tests/CMakeFiles/minnow_testing_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/minnow_testing_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/minnow_testing_sanitized.dir/build.make tests/CMakeFiles/minnow_testing_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=26 "Finished codegen for target minnow_testing_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=25 "Finished codegen for target minnow_testing_sanitized"
 .PHONY : tests/CMakeFiles/minnow_testing_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5548,6 +5709,20 @@ tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/recv_close_sani
 tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/recv_close.dir/all
 tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/recv_special_sanitized.dir/all
 tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/recv_special.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_connect_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_connect.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_transmit_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_transmit.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_window_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_window.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_ack_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_ack.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_close_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_close.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_retx_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_retx.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_extra_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/send_extra.dir/all
 tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/no_skip_sanitized.dir/all
 tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/no_skip.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/functionality_testing.dir/build.make tests/CMakeFiles/functionality_testing.dir/depend
@@ -5557,7 +5732,7 @@ tests/CMakeFiles/functionality_testing.dir/all: tests/CMakeFiles/no_skip.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/functionality_testing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 81
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 82
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/functionality_testing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/functionality_testing.dir/rule
@@ -5617,6 +5792,20 @@ tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/recv_close_
 tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/recv_close.dir/all
 tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/recv_special_sanitized.dir/all
 tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/recv_special.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_connect_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_connect.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_transmit_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_transmit.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_window_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_window.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_ack_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_ack.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_close_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_close.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_retx_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_retx.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_extra_sanitized.dir/all
+tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/send_extra.dir/all
 tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/no_skip_sanitized.dir/all
 tests/CMakeFiles/functionality_testing.dir/codegen: tests/CMakeFiles/no_skip.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/functionality_testing.dir/build.make tests/CMakeFiles/functionality_testing.dir/codegen
@@ -5671,12 +5860,12 @@ tests/CMakeFiles/byte_stream_basics_sanitized.dir/all: src/CMakeFiles/minnow_san
 tests/CMakeFiles/byte_stream_basics_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_basics_sanitized.dir/build.make tests/CMakeFiles/byte_stream_basics_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_basics_sanitized.dir/build.make tests/CMakeFiles/byte_stream_basics_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=2 "Built target byte_stream_basics_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=1 "Built target byte_stream_basics_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_basics_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_basics_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_basics_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_basics_sanitized.dir/rule
@@ -5688,7 +5877,7 @@ byte_stream_basics_sanitized: tests/CMakeFiles/byte_stream_basics_sanitized.dir/
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_basics_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_basics_sanitized.dir/build.make tests/CMakeFiles/byte_stream_basics_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=2 "Finished codegen for target byte_stream_basics_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=1 "Finished codegen for target byte_stream_basics_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_basics_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5705,12 +5894,12 @@ tests/CMakeFiles/byte_stream_basics.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/byte_stream_basics.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_basics.dir/build.make tests/CMakeFiles/byte_stream_basics.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_basics.dir/build.make tests/CMakeFiles/byte_stream_basics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=1 "Built target byte_stream_basics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target byte_stream_basics"
 .PHONY : tests/CMakeFiles/byte_stream_basics.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_basics.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_basics.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_basics.dir/rule
@@ -5722,7 +5911,7 @@ byte_stream_basics: tests/CMakeFiles/byte_stream_basics.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_basics.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_basics.dir/build.make tests/CMakeFiles/byte_stream_basics.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=1 "Finished codegen for target byte_stream_basics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target byte_stream_basics"
 .PHONY : tests/CMakeFiles/byte_stream_basics.dir/codegen
 
 # clean rule for target.
@@ -5739,12 +5928,12 @@ tests/CMakeFiles/byte_stream_capacity_sanitized.dir/all: src/CMakeFiles/minnow_s
 tests/CMakeFiles/byte_stream_capacity_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_capacity_sanitized.dir/build.make tests/CMakeFiles/byte_stream_capacity_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_capacity_sanitized.dir/build.make tests/CMakeFiles/byte_stream_capacity_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=4 "Built target byte_stream_capacity_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=3 "Built target byte_stream_capacity_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_capacity_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_capacity_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_capacity_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_capacity_sanitized.dir/rule
@@ -5756,7 +5945,7 @@ byte_stream_capacity_sanitized: tests/CMakeFiles/byte_stream_capacity_sanitized.
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_capacity_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_capacity_sanitized.dir/build.make tests/CMakeFiles/byte_stream_capacity_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=4 "Finished codegen for target byte_stream_capacity_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=3 "Finished codegen for target byte_stream_capacity_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_capacity_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5773,7 +5962,7 @@ tests/CMakeFiles/byte_stream_capacity.dir/all: src/CMakeFiles/minnow_debug.dir/a
 tests/CMakeFiles/byte_stream_capacity.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_capacity.dir/build.make tests/CMakeFiles/byte_stream_capacity.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_capacity.dir/build.make tests/CMakeFiles/byte_stream_capacity.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=3 "Built target byte_stream_capacity"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=2 "Built target byte_stream_capacity"
 .PHONY : tests/CMakeFiles/byte_stream_capacity.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5790,7 +5979,7 @@ byte_stream_capacity: tests/CMakeFiles/byte_stream_capacity.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_capacity.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_capacity.dir/build.make tests/CMakeFiles/byte_stream_capacity.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=3 "Finished codegen for target byte_stream_capacity"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=2 "Finished codegen for target byte_stream_capacity"
 .PHONY : tests/CMakeFiles/byte_stream_capacity.dir/codegen
 
 # clean rule for target.
@@ -5807,12 +5996,12 @@ tests/CMakeFiles/byte_stream_one_write_sanitized.dir/all: src/CMakeFiles/minnow_
 tests/CMakeFiles/byte_stream_one_write_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_one_write_sanitized.dir/build.make tests/CMakeFiles/byte_stream_one_write_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_one_write_sanitized.dir/build.make tests/CMakeFiles/byte_stream_one_write_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=8 "Built target byte_stream_one_write_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=7 "Built target byte_stream_one_write_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_one_write_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_one_write_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_one_write_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_one_write_sanitized.dir/rule
@@ -5824,7 +6013,7 @@ byte_stream_one_write_sanitized: tests/CMakeFiles/byte_stream_one_write_sanitize
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_one_write_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_one_write_sanitized.dir/build.make tests/CMakeFiles/byte_stream_one_write_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=8 "Finished codegen for target byte_stream_one_write_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=7 "Finished codegen for target byte_stream_one_write_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_one_write_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5841,7 +6030,7 @@ tests/CMakeFiles/byte_stream_one_write.dir/all: src/CMakeFiles/minnow_debug.dir/
 tests/CMakeFiles/byte_stream_one_write.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_one_write.dir/build.make tests/CMakeFiles/byte_stream_one_write.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_one_write.dir/build.make tests/CMakeFiles/byte_stream_one_write.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=7 "Built target byte_stream_one_write"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=6 "Built target byte_stream_one_write"
 .PHONY : tests/CMakeFiles/byte_stream_one_write.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5858,7 +6047,7 @@ byte_stream_one_write: tests/CMakeFiles/byte_stream_one_write.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_one_write.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_one_write.dir/build.make tests/CMakeFiles/byte_stream_one_write.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=7 "Finished codegen for target byte_stream_one_write"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=6 "Finished codegen for target byte_stream_one_write"
 .PHONY : tests/CMakeFiles/byte_stream_one_write.dir/codegen
 
 # clean rule for target.
@@ -5875,12 +6064,12 @@ tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/all: src/CMakeFiles/minnow
 tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/build.make tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/build.make tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=13 "Built target byte_stream_two_writes_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=11 "Built target byte_stream_two_writes_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/rule
@@ -5892,7 +6081,7 @@ byte_stream_two_writes_sanitized: tests/CMakeFiles/byte_stream_two_writes_saniti
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/build.make tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=13 "Finished codegen for target byte_stream_two_writes_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=11 "Finished codegen for target byte_stream_two_writes_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_two_writes_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5909,7 +6098,7 @@ tests/CMakeFiles/byte_stream_two_writes.dir/all: src/CMakeFiles/minnow_debug.dir
 tests/CMakeFiles/byte_stream_two_writes.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_two_writes.dir/build.make tests/CMakeFiles/byte_stream_two_writes.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_two_writes.dir/build.make tests/CMakeFiles/byte_stream_two_writes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=12 "Built target byte_stream_two_writes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=10 "Built target byte_stream_two_writes"
 .PHONY : tests/CMakeFiles/byte_stream_two_writes.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5926,7 +6115,7 @@ byte_stream_two_writes: tests/CMakeFiles/byte_stream_two_writes.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_two_writes.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_two_writes.dir/build.make tests/CMakeFiles/byte_stream_two_writes.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=12 "Finished codegen for target byte_stream_two_writes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=10 "Finished codegen for target byte_stream_two_writes"
 .PHONY : tests/CMakeFiles/byte_stream_two_writes.dir/codegen
 
 # clean rule for target.
@@ -5943,12 +6132,12 @@ tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/all: src/CMakeFiles/minno
 tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/build.make tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/build.make tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=6 "Built target byte_stream_many_writes_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=5 "Built target byte_stream_many_writes_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/rule
@@ -5960,7 +6149,7 @@ byte_stream_many_writes_sanitized: tests/CMakeFiles/byte_stream_many_writes_sani
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/build.make tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=6 "Finished codegen for target byte_stream_many_writes_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=5 "Finished codegen for target byte_stream_many_writes_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_many_writes_sanitized.dir/codegen
 
 # clean rule for target.
@@ -5977,7 +6166,7 @@ tests/CMakeFiles/byte_stream_many_writes.dir/all: src/CMakeFiles/minnow_debug.di
 tests/CMakeFiles/byte_stream_many_writes.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=5 "Built target byte_stream_many_writes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=4 "Built target byte_stream_many_writes"
 .PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5994,7 +6183,7 @@ byte_stream_many_writes: tests/CMakeFiles/byte_stream_many_writes.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_many_writes.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_many_writes.dir/build.make tests/CMakeFiles/byte_stream_many_writes.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=5 "Finished codegen for target byte_stream_many_writes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=4 "Finished codegen for target byte_stream_many_writes"
 .PHONY : tests/CMakeFiles/byte_stream_many_writes.dir/codegen
 
 # clean rule for target.
@@ -6011,12 +6200,12 @@ tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/all: src/CMakeFiles/minno
 tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/build.make tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/build.make tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=11 "Built target byte_stream_stress_test_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=9 "Built target byte_stream_stress_test_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/rule
@@ -6028,7 +6217,7 @@ byte_stream_stress_test_sanitized: tests/CMakeFiles/byte_stream_stress_test_sani
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/build.make tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=11 "Finished codegen for target byte_stream_stress_test_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=9 "Finished codegen for target byte_stream_stress_test_sanitized"
 .PHONY : tests/CMakeFiles/byte_stream_stress_test_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6045,12 +6234,12 @@ tests/CMakeFiles/byte_stream_stress_test.dir/all: src/CMakeFiles/minnow_debug.di
 tests/CMakeFiles/byte_stream_stress_test.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_stress_test.dir/build.make tests/CMakeFiles/byte_stream_stress_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_stress_test.dir/build.make tests/CMakeFiles/byte_stream_stress_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=10 "Built target byte_stream_stress_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target byte_stream_stress_test"
 .PHONY : tests/CMakeFiles/byte_stream_stress_test.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/byte_stream_stress_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/byte_stream_stress_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/byte_stream_stress_test.dir/rule
@@ -6062,7 +6251,7 @@ byte_stream_stress_test: tests/CMakeFiles/byte_stream_stress_test.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_stress_test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_stress_test.dir/build.make tests/CMakeFiles/byte_stream_stress_test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=10 "Finished codegen for target byte_stream_stress_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target byte_stream_stress_test"
 .PHONY : tests/CMakeFiles/byte_stream_stress_test.dir/codegen
 
 # clean rule for target.
@@ -6079,12 +6268,12 @@ tests/CMakeFiles/reassembler_single_sanitized.dir/all: src/CMakeFiles/minnow_san
 tests/CMakeFiles/reassembler_single_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_single_sanitized.dir/build.make tests/CMakeFiles/reassembler_single_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_single_sanitized.dir/build.make tests/CMakeFiles/reassembler_single_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=41 "Built target reassembler_single_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=37 "Built target reassembler_single_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_single_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_single_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_single_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_single_sanitized.dir/rule
@@ -6096,7 +6285,7 @@ reassembler_single_sanitized: tests/CMakeFiles/reassembler_single_sanitized.dir/
 # codegen rule for target.
 tests/CMakeFiles/reassembler_single_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_single_sanitized.dir/build.make tests/CMakeFiles/reassembler_single_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=41 "Finished codegen for target reassembler_single_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=37 "Finished codegen for target reassembler_single_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_single_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6113,12 +6302,12 @@ tests/CMakeFiles/reassembler_single.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/reassembler_single.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_single.dir/build.make tests/CMakeFiles/reassembler_single.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_single.dir/build.make tests/CMakeFiles/reassembler_single.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=40 "Built target reassembler_single"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target reassembler_single"
 .PHONY : tests/CMakeFiles/reassembler_single.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_single.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_single.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_single.dir/rule
@@ -6130,7 +6319,7 @@ reassembler_single: tests/CMakeFiles/reassembler_single.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_single.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_single.dir/build.make tests/CMakeFiles/reassembler_single.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=40 "Finished codegen for target reassembler_single"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target reassembler_single"
 .PHONY : tests/CMakeFiles/reassembler_single.dir/codegen
 
 # clean rule for target.
@@ -6147,12 +6336,12 @@ tests/CMakeFiles/reassembler_cap_sanitized.dir/all: src/CMakeFiles/minnow_saniti
 tests/CMakeFiles/reassembler_cap_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_cap_sanitized.dir/build.make tests/CMakeFiles/reassembler_cap_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_cap_sanitized.dir/build.make tests/CMakeFiles/reassembler_cap_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=31 "Built target reassembler_cap_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target reassembler_cap_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_cap_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_cap_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_cap_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_cap_sanitized.dir/rule
@@ -6164,7 +6353,7 @@ reassembler_cap_sanitized: tests/CMakeFiles/reassembler_cap_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_cap_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_cap_sanitized.dir/build.make tests/CMakeFiles/reassembler_cap_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=31 "Finished codegen for target reassembler_cap_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target reassembler_cap_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_cap_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6181,7 +6370,7 @@ tests/CMakeFiles/reassembler_cap.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/reassembler_cap.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_cap.dir/build.make tests/CMakeFiles/reassembler_cap.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_cap.dir/build.make tests/CMakeFiles/reassembler_cap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=30 "Built target reassembler_cap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=28 "Built target reassembler_cap"
 .PHONY : tests/CMakeFiles/reassembler_cap.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6198,7 +6387,7 @@ reassembler_cap: tests/CMakeFiles/reassembler_cap.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_cap.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_cap.dir/build.make tests/CMakeFiles/reassembler_cap.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=30 "Finished codegen for target reassembler_cap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=28 "Finished codegen for target reassembler_cap"
 .PHONY : tests/CMakeFiles/reassembler_cap.dir/codegen
 
 # clean rule for target.
@@ -6215,12 +6404,12 @@ tests/CMakeFiles/reassembler_seq_sanitized.dir/all: src/CMakeFiles/minnow_saniti
 tests/CMakeFiles/reassembler_seq_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_seq_sanitized.dir/build.make tests/CMakeFiles/reassembler_seq_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_seq_sanitized.dir/build.make tests/CMakeFiles/reassembler_seq_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=39 "Built target reassembler_seq_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=36 "Built target reassembler_seq_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_seq_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_seq_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_seq_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_seq_sanitized.dir/rule
@@ -6232,7 +6421,7 @@ reassembler_seq_sanitized: tests/CMakeFiles/reassembler_seq_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_seq_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_seq_sanitized.dir/build.make tests/CMakeFiles/reassembler_seq_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=39 "Finished codegen for target reassembler_seq_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=36 "Finished codegen for target reassembler_seq_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_seq_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6249,7 +6438,7 @@ tests/CMakeFiles/reassembler_seq.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/reassembler_seq.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_seq.dir/build.make tests/CMakeFiles/reassembler_seq.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_seq.dir/build.make tests/CMakeFiles/reassembler_seq.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=38 "Built target reassembler_seq"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=35 "Built target reassembler_seq"
 .PHONY : tests/CMakeFiles/reassembler_seq.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6266,7 +6455,7 @@ reassembler_seq: tests/CMakeFiles/reassembler_seq.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_seq.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_seq.dir/build.make tests/CMakeFiles/reassembler_seq.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=38 "Finished codegen for target reassembler_seq"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=35 "Finished codegen for target reassembler_seq"
 .PHONY : tests/CMakeFiles/reassembler_seq.dir/codegen
 
 # clean rule for target.
@@ -6283,12 +6472,12 @@ tests/CMakeFiles/reassembler_dup_sanitized.dir/all: src/CMakeFiles/minnow_saniti
 tests/CMakeFiles/reassembler_dup_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_dup_sanitized.dir/build.make tests/CMakeFiles/reassembler_dup_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_dup_sanitized.dir/build.make tests/CMakeFiles/reassembler_dup_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=33 "Built target reassembler_dup_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=30 "Built target reassembler_dup_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_dup_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_dup_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_dup_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_dup_sanitized.dir/rule
@@ -6300,7 +6489,7 @@ reassembler_dup_sanitized: tests/CMakeFiles/reassembler_dup_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_dup_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_dup_sanitized.dir/build.make tests/CMakeFiles/reassembler_dup_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=33 "Finished codegen for target reassembler_dup_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=30 "Finished codegen for target reassembler_dup_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_dup_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6317,7 +6506,7 @@ tests/CMakeFiles/reassembler_dup.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/reassembler_dup.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_dup.dir/build.make tests/CMakeFiles/reassembler_dup.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_dup.dir/build.make tests/CMakeFiles/reassembler_dup.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=32 "Built target reassembler_dup"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=29 "Built target reassembler_dup"
 .PHONY : tests/CMakeFiles/reassembler_dup.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6334,7 +6523,7 @@ reassembler_dup: tests/CMakeFiles/reassembler_dup.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_dup.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_dup.dir/build.make tests/CMakeFiles/reassembler_dup.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=32 "Finished codegen for target reassembler_dup"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=29 "Finished codegen for target reassembler_dup"
 .PHONY : tests/CMakeFiles/reassembler_dup.dir/codegen
 
 # clean rule for target.
@@ -6351,12 +6540,12 @@ tests/CMakeFiles/reassembler_holes_sanitized.dir/all: src/CMakeFiles/minnow_sani
 tests/CMakeFiles/reassembler_holes_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_holes_sanitized.dir/build.make tests/CMakeFiles/reassembler_holes_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_holes_sanitized.dir/build.make tests/CMakeFiles/reassembler_holes_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=35 "Built target reassembler_holes_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=32 "Built target reassembler_holes_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_holes_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_holes_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_holes_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_holes_sanitized.dir/rule
@@ -6368,7 +6557,7 @@ reassembler_holes_sanitized: tests/CMakeFiles/reassembler_holes_sanitized.dir/ru
 # codegen rule for target.
 tests/CMakeFiles/reassembler_holes_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_holes_sanitized.dir/build.make tests/CMakeFiles/reassembler_holes_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=35 "Finished codegen for target reassembler_holes_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=32 "Finished codegen for target reassembler_holes_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_holes_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6385,7 +6574,7 @@ tests/CMakeFiles/reassembler_holes.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/reassembler_holes.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_holes.dir/build.make tests/CMakeFiles/reassembler_holes.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_holes.dir/build.make tests/CMakeFiles/reassembler_holes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=34 "Built target reassembler_holes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=31 "Built target reassembler_holes"
 .PHONY : tests/CMakeFiles/reassembler_holes.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6402,7 +6591,7 @@ reassembler_holes: tests/CMakeFiles/reassembler_holes.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_holes.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_holes.dir/build.make tests/CMakeFiles/reassembler_holes.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=34 "Finished codegen for target reassembler_holes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=31 "Finished codegen for target reassembler_holes"
 .PHONY : tests/CMakeFiles/reassembler_holes.dir/codegen
 
 # clean rule for target.
@@ -6419,12 +6608,12 @@ tests/CMakeFiles/reassembler_overlapping_sanitized.dir/all: src/CMakeFiles/minno
 tests/CMakeFiles/reassembler_overlapping_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_overlapping_sanitized.dir/build.make tests/CMakeFiles/reassembler_overlapping_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_overlapping_sanitized.dir/build.make tests/CMakeFiles/reassembler_overlapping_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=37 "Built target reassembler_overlapping_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=34 "Built target reassembler_overlapping_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_overlapping_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_overlapping_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_overlapping_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_overlapping_sanitized.dir/rule
@@ -6436,7 +6625,7 @@ reassembler_overlapping_sanitized: tests/CMakeFiles/reassembler_overlapping_sani
 # codegen rule for target.
 tests/CMakeFiles/reassembler_overlapping_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_overlapping_sanitized.dir/build.make tests/CMakeFiles/reassembler_overlapping_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=37 "Finished codegen for target reassembler_overlapping_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=34 "Finished codegen for target reassembler_overlapping_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_overlapping_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6453,7 +6642,7 @@ tests/CMakeFiles/reassembler_overlapping.dir/all: src/CMakeFiles/minnow_debug.di
 tests/CMakeFiles/reassembler_overlapping.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_overlapping.dir/build.make tests/CMakeFiles/reassembler_overlapping.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_overlapping.dir/build.make tests/CMakeFiles/reassembler_overlapping.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=36 "Built target reassembler_overlapping"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=33 "Built target reassembler_overlapping"
 .PHONY : tests/CMakeFiles/reassembler_overlapping.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6470,7 +6659,7 @@ reassembler_overlapping: tests/CMakeFiles/reassembler_overlapping.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_overlapping.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_overlapping.dir/build.make tests/CMakeFiles/reassembler_overlapping.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=36 "Finished codegen for target reassembler_overlapping"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=33 "Finished codegen for target reassembler_overlapping"
 .PHONY : tests/CMakeFiles/reassembler_overlapping.dir/codegen
 
 # clean rule for target.
@@ -6487,12 +6676,12 @@ tests/CMakeFiles/reassembler_win_sanitized.dir/all: src/CMakeFiles/minnow_saniti
 tests/CMakeFiles/reassembler_win_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_win_sanitized.dir/build.make tests/CMakeFiles/reassembler_win_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_win_sanitized.dir/build.make tests/CMakeFiles/reassembler_win_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=44 "Built target reassembler_win_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=40 "Built target reassembler_win_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_win_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/reassembler_win_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/reassembler_win_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/reassembler_win_sanitized.dir/rule
@@ -6504,7 +6693,7 @@ reassembler_win_sanitized: tests/CMakeFiles/reassembler_win_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_win_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_win_sanitized.dir/build.make tests/CMakeFiles/reassembler_win_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=44 "Finished codegen for target reassembler_win_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=40 "Finished codegen for target reassembler_win_sanitized"
 .PHONY : tests/CMakeFiles/reassembler_win_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6521,7 +6710,7 @@ tests/CMakeFiles/reassembler_win.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/reassembler_win.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_win.dir/build.make tests/CMakeFiles/reassembler_win.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_win.dir/build.make tests/CMakeFiles/reassembler_win.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=43 "Built target reassembler_win"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=39 "Built target reassembler_win"
 .PHONY : tests/CMakeFiles/reassembler_win.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6538,7 +6727,7 @@ reassembler_win: tests/CMakeFiles/reassembler_win.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_win.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_win.dir/build.make tests/CMakeFiles/reassembler_win.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=43 "Finished codegen for target reassembler_win"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=39 "Finished codegen for target reassembler_win"
 .PHONY : tests/CMakeFiles/reassembler_win.dir/codegen
 
 # clean rule for target.
@@ -6555,12 +6744,12 @@ tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/all: src/CMakeFiles/minnow_
 tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=91 "Built target wrapping_integers_cmp_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target wrapping_integers_cmp_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/rule
@@ -6572,7 +6761,7 @@ wrapping_integers_cmp_sanitized: tests/CMakeFiles/wrapping_integers_cmp_sanitize
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=91 "Finished codegen for target wrapping_integers_cmp_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target wrapping_integers_cmp_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6589,7 +6778,7 @@ tests/CMakeFiles/wrapping_integers_cmp.dir/all: src/CMakeFiles/minnow_debug.dir/
 tests/CMakeFiles/wrapping_integers_cmp.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_cmp.dir/build.make tests/CMakeFiles/wrapping_integers_cmp.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_cmp.dir/build.make tests/CMakeFiles/wrapping_integers_cmp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=90 "Built target wrapping_integers_cmp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=92 "Built target wrapping_integers_cmp"
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6606,7 +6795,7 @@ wrapping_integers_cmp: tests/CMakeFiles/wrapping_integers_cmp.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_cmp.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_cmp.dir/build.make tests/CMakeFiles/wrapping_integers_cmp.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=90 "Finished codegen for target wrapping_integers_cmp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=92 "Finished codegen for target wrapping_integers_cmp"
 .PHONY : tests/CMakeFiles/wrapping_integers_cmp.dir/codegen
 
 # clean rule for target.
@@ -6623,12 +6812,12 @@ tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/all: src/CMakeFiles/minnow
 tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=99,100 "Built target wrapping_integers_wrap_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=100 "Built target wrapping_integers_wrap_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/rule
@@ -6640,7 +6829,7 @@ wrapping_integers_wrap_sanitized: tests/CMakeFiles/wrapping_integers_wrap_saniti
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=99,100 "Finished codegen for target wrapping_integers_wrap_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=100 "Finished codegen for target wrapping_integers_wrap_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_wrap_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6657,7 +6846,7 @@ tests/CMakeFiles/wrapping_integers_wrap.dir/all: src/CMakeFiles/minnow_debug.dir
 tests/CMakeFiles/wrapping_integers_wrap.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_wrap.dir/build.make tests/CMakeFiles/wrapping_integers_wrap.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_wrap.dir/build.make tests/CMakeFiles/wrapping_integers_wrap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=98 "Built target wrapping_integers_wrap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=99 "Built target wrapping_integers_wrap"
 .PHONY : tests/CMakeFiles/wrapping_integers_wrap.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6674,7 +6863,7 @@ wrapping_integers_wrap: tests/CMakeFiles/wrapping_integers_wrap.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_wrap.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_wrap.dir/build.make tests/CMakeFiles/wrapping_integers_wrap.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=98 "Finished codegen for target wrapping_integers_wrap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=99 "Finished codegen for target wrapping_integers_wrap"
 .PHONY : tests/CMakeFiles/wrapping_integers_wrap.dir/codegen
 
 # clean rule for target.
@@ -6691,12 +6880,12 @@ tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/all: src/CMakeFiles/minn
 tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=97 "Built target wrapping_integers_unwrap_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=98 "Built target wrapping_integers_unwrap_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/rule
@@ -6708,7 +6897,7 @@ wrapping_integers_unwrap_sanitized: tests/CMakeFiles/wrapping_integers_unwrap_sa
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=97 "Finished codegen for target wrapping_integers_unwrap_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=98 "Finished codegen for target wrapping_integers_unwrap_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_unwrap_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6725,7 +6914,7 @@ tests/CMakeFiles/wrapping_integers_unwrap.dir/all: src/CMakeFiles/minnow_debug.d
 tests/CMakeFiles/wrapping_integers_unwrap.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_unwrap.dir/build.make tests/CMakeFiles/wrapping_integers_unwrap.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_unwrap.dir/build.make tests/CMakeFiles/wrapping_integers_unwrap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=96 "Built target wrapping_integers_unwrap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=97 "Built target wrapping_integers_unwrap"
 .PHONY : tests/CMakeFiles/wrapping_integers_unwrap.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6742,7 +6931,7 @@ wrapping_integers_unwrap: tests/CMakeFiles/wrapping_integers_unwrap.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_unwrap.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_unwrap.dir/build.make tests/CMakeFiles/wrapping_integers_unwrap.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=96 "Finished codegen for target wrapping_integers_unwrap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=97 "Finished codegen for target wrapping_integers_unwrap"
 .PHONY : tests/CMakeFiles/wrapping_integers_unwrap.dir/codegen
 
 # clean rule for target.
@@ -6759,12 +6948,12 @@ tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/all: src/CMakeFiles/m
 tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=95 "Built target wrapping_integers_roundtrip_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=96 "Built target wrapping_integers_roundtrip_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/rule
@@ -6776,7 +6965,7 @@ wrapping_integers_roundtrip_sanitized: tests/CMakeFiles/wrapping_integers_roundt
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=95 "Finished codegen for target wrapping_integers_roundtrip_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=96 "Finished codegen for target wrapping_integers_roundtrip_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_roundtrip_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6793,7 +6982,7 @@ tests/CMakeFiles/wrapping_integers_roundtrip.dir/all: src/CMakeFiles/minnow_debu
 tests/CMakeFiles/wrapping_integers_roundtrip.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_roundtrip.dir/build.make tests/CMakeFiles/wrapping_integers_roundtrip.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_roundtrip.dir/build.make tests/CMakeFiles/wrapping_integers_roundtrip.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=94 "Built target wrapping_integers_roundtrip"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=95 "Built target wrapping_integers_roundtrip"
 .PHONY : tests/CMakeFiles/wrapping_integers_roundtrip.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6810,7 +6999,7 @@ wrapping_integers_roundtrip: tests/CMakeFiles/wrapping_integers_roundtrip.dir/ru
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_roundtrip.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_roundtrip.dir/build.make tests/CMakeFiles/wrapping_integers_roundtrip.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=94 "Finished codegen for target wrapping_integers_roundtrip"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=95 "Finished codegen for target wrapping_integers_roundtrip"
 .PHONY : tests/CMakeFiles/wrapping_integers_roundtrip.dir/codegen
 
 # clean rule for target.
@@ -6827,12 +7016,12 @@ tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/all: src/CMakeFiles/minno
 tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=93 "Built target wrapping_integers_extra_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=94 "Built target wrapping_integers_extra_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/rule
@@ -6844,7 +7033,7 @@ wrapping_integers_extra_sanitized: tests/CMakeFiles/wrapping_integers_extra_sani
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/build.make tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=93 "Finished codegen for target wrapping_integers_extra_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=94 "Finished codegen for target wrapping_integers_extra_sanitized"
 .PHONY : tests/CMakeFiles/wrapping_integers_extra_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6861,7 +7050,7 @@ tests/CMakeFiles/wrapping_integers_extra.dir/all: src/CMakeFiles/minnow_debug.di
 tests/CMakeFiles/wrapping_integers_extra.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_extra.dir/build.make tests/CMakeFiles/wrapping_integers_extra.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_extra.dir/build.make tests/CMakeFiles/wrapping_integers_extra.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=92 "Built target wrapping_integers_extra"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=93 "Built target wrapping_integers_extra"
 .PHONY : tests/CMakeFiles/wrapping_integers_extra.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6878,7 +7067,7 @@ wrapping_integers_extra: tests/CMakeFiles/wrapping_integers_extra.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/wrapping_integers_extra.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/wrapping_integers_extra.dir/build.make tests/CMakeFiles/wrapping_integers_extra.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=92 "Finished codegen for target wrapping_integers_extra"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=93 "Finished codegen for target wrapping_integers_extra"
 .PHONY : tests/CMakeFiles/wrapping_integers_extra.dir/codegen
 
 # clean rule for target.
@@ -6895,12 +7084,12 @@ tests/CMakeFiles/recv_connect_sanitized.dir/all: src/CMakeFiles/minnow_sanitized
 tests/CMakeFiles/recv_connect_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_connect_sanitized.dir/build.make tests/CMakeFiles/recv_connect_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_connect_sanitized.dir/build.make tests/CMakeFiles/recv_connect_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=49 "Built target recv_connect_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=44 "Built target recv_connect_sanitized"
 .PHONY : tests/CMakeFiles/recv_connect_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_connect_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_connect_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_connect_sanitized.dir/rule
@@ -6912,7 +7101,7 @@ recv_connect_sanitized: tests/CMakeFiles/recv_connect_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_connect_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_connect_sanitized.dir/build.make tests/CMakeFiles/recv_connect_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=49 "Finished codegen for target recv_connect_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=44 "Finished codegen for target recv_connect_sanitized"
 .PHONY : tests/CMakeFiles/recv_connect_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6929,7 +7118,7 @@ tests/CMakeFiles/recv_connect.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_connect.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_connect.dir/build.make tests/CMakeFiles/recv_connect.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_connect.dir/build.make tests/CMakeFiles/recv_connect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=48 "Built target recv_connect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=43 "Built target recv_connect"
 .PHONY : tests/CMakeFiles/recv_connect.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6946,7 +7135,7 @@ recv_connect: tests/CMakeFiles/recv_connect.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_connect.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_connect.dir/build.make tests/CMakeFiles/recv_connect.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=48 "Finished codegen for target recv_connect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=43 "Finished codegen for target recv_connect"
 .PHONY : tests/CMakeFiles/recv_connect.dir/codegen
 
 # clean rule for target.
@@ -6963,12 +7152,12 @@ tests/CMakeFiles/recv_transmit_sanitized.dir/all: src/CMakeFiles/minnow_sanitize
 tests/CMakeFiles/recv_transmit_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_transmit_sanitized.dir/build.make tests/CMakeFiles/recv_transmit_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_transmit_sanitized.dir/build.make tests/CMakeFiles/recv_transmit_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=57 "Built target recv_transmit_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=51 "Built target recv_transmit_sanitized"
 .PHONY : tests/CMakeFiles/recv_transmit_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_transmit_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_transmit_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_transmit_sanitized.dir/rule
@@ -6980,7 +7169,7 @@ recv_transmit_sanitized: tests/CMakeFiles/recv_transmit_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_transmit_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_transmit_sanitized.dir/build.make tests/CMakeFiles/recv_transmit_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=57 "Finished codegen for target recv_transmit_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=51 "Finished codegen for target recv_transmit_sanitized"
 .PHONY : tests/CMakeFiles/recv_transmit_sanitized.dir/codegen
 
 # clean rule for target.
@@ -6997,7 +7186,7 @@ tests/CMakeFiles/recv_transmit.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_transmit.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_transmit.dir/build.make tests/CMakeFiles/recv_transmit.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_transmit.dir/build.make tests/CMakeFiles/recv_transmit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=56 "Built target recv_transmit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=50 "Built target recv_transmit"
 .PHONY : tests/CMakeFiles/recv_transmit.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7014,7 +7203,7 @@ recv_transmit: tests/CMakeFiles/recv_transmit.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_transmit.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_transmit.dir/build.make tests/CMakeFiles/recv_transmit.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=56 "Finished codegen for target recv_transmit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=50 "Finished codegen for target recv_transmit"
 .PHONY : tests/CMakeFiles/recv_transmit.dir/codegen
 
 # clean rule for target.
@@ -7031,12 +7220,12 @@ tests/CMakeFiles/recv_window_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.
 tests/CMakeFiles/recv_window_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_window_sanitized.dir/build.make tests/CMakeFiles/recv_window_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_window_sanitized.dir/build.make tests/CMakeFiles/recv_window_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=59 "Built target recv_window_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target recv_window_sanitized"
 .PHONY : tests/CMakeFiles/recv_window_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_window_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_window_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_window_sanitized.dir/rule
@@ -7048,7 +7237,7 @@ recv_window_sanitized: tests/CMakeFiles/recv_window_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_window_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_window_sanitized.dir/build.make tests/CMakeFiles/recv_window_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=59 "Finished codegen for target recv_window_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target recv_window_sanitized"
 .PHONY : tests/CMakeFiles/recv_window_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7065,7 +7254,7 @@ tests/CMakeFiles/recv_window.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_window.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_window.dir/build.make tests/CMakeFiles/recv_window.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_window.dir/build.make tests/CMakeFiles/recv_window.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=58 "Built target recv_window"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=52 "Built target recv_window"
 .PHONY : tests/CMakeFiles/recv_window.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7082,7 +7271,7 @@ recv_window: tests/CMakeFiles/recv_window.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_window.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_window.dir/build.make tests/CMakeFiles/recv_window.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=58 "Finished codegen for target recv_window"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=52 "Finished codegen for target recv_window"
 .PHONY : tests/CMakeFiles/recv_window.dir/codegen
 
 # clean rule for target.
@@ -7099,12 +7288,12 @@ tests/CMakeFiles/recv_reorder_sanitized.dir/all: src/CMakeFiles/minnow_sanitized
 tests/CMakeFiles/recv_reorder_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_sanitized.dir/build.make tests/CMakeFiles/recv_reorder_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_sanitized.dir/build.make tests/CMakeFiles/recv_reorder_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=53 "Built target recv_reorder_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=47 "Built target recv_reorder_sanitized"
 .PHONY : tests/CMakeFiles/recv_reorder_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_reorder_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_reorder_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_reorder_sanitized.dir/rule
@@ -7116,7 +7305,7 @@ recv_reorder_sanitized: tests/CMakeFiles/recv_reorder_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_reorder_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_sanitized.dir/build.make tests/CMakeFiles/recv_reorder_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=53 "Finished codegen for target recv_reorder_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=47 "Finished codegen for target recv_reorder_sanitized"
 .PHONY : tests/CMakeFiles/recv_reorder_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7133,12 +7322,12 @@ tests/CMakeFiles/recv_reorder.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_reorder.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder.dir/build.make tests/CMakeFiles/recv_reorder.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder.dir/build.make tests/CMakeFiles/recv_reorder.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=50 "Built target recv_reorder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target recv_reorder"
 .PHONY : tests/CMakeFiles/recv_reorder.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_reorder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_reorder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_reorder.dir/rule
@@ -7150,7 +7339,7 @@ recv_reorder: tests/CMakeFiles/recv_reorder.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_reorder.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder.dir/build.make tests/CMakeFiles/recv_reorder.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=50 "Finished codegen for target recv_reorder"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target recv_reorder"
 .PHONY : tests/CMakeFiles/recv_reorder.dir/codegen
 
 # clean rule for target.
@@ -7167,12 +7356,12 @@ tests/CMakeFiles/recv_reorder_more_sanitized.dir/all: src/CMakeFiles/minnow_sani
 tests/CMakeFiles/recv_reorder_more_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_more_sanitized.dir/build.make tests/CMakeFiles/recv_reorder_more_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_more_sanitized.dir/build.make tests/CMakeFiles/recv_reorder_more_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=52 "Built target recv_reorder_more_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=46 "Built target recv_reorder_more_sanitized"
 .PHONY : tests/CMakeFiles/recv_reorder_more_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_reorder_more_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_reorder_more_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_reorder_more_sanitized.dir/rule
@@ -7184,7 +7373,7 @@ recv_reorder_more_sanitized: tests/CMakeFiles/recv_reorder_more_sanitized.dir/ru
 # codegen rule for target.
 tests/CMakeFiles/recv_reorder_more_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_more_sanitized.dir/build.make tests/CMakeFiles/recv_reorder_more_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=52 "Finished codegen for target recv_reorder_more_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=46 "Finished codegen for target recv_reorder_more_sanitized"
 .PHONY : tests/CMakeFiles/recv_reorder_more_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7201,7 +7390,7 @@ tests/CMakeFiles/recv_reorder_more.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_reorder_more.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_more.dir/build.make tests/CMakeFiles/recv_reorder_more.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_more.dir/build.make tests/CMakeFiles/recv_reorder_more.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=51 "Built target recv_reorder_more"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=45 "Built target recv_reorder_more"
 .PHONY : tests/CMakeFiles/recv_reorder_more.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7218,7 +7407,7 @@ recv_reorder_more: tests/CMakeFiles/recv_reorder_more.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_reorder_more.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_reorder_more.dir/build.make tests/CMakeFiles/recv_reorder_more.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=51 "Finished codegen for target recv_reorder_more"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=45 "Finished codegen for target recv_reorder_more"
 .PHONY : tests/CMakeFiles/recv_reorder_more.dir/codegen
 
 # clean rule for target.
@@ -7235,12 +7424,12 @@ tests/CMakeFiles/recv_close_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.d
 tests/CMakeFiles/recv_close_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_close_sanitized.dir/build.make tests/CMakeFiles/recv_close_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_close_sanitized.dir/build.make tests/CMakeFiles/recv_close_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=47 "Built target recv_close_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=42 "Built target recv_close_sanitized"
 .PHONY : tests/CMakeFiles/recv_close_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_close_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_close_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_close_sanitized.dir/rule
@@ -7252,7 +7441,7 @@ recv_close_sanitized: tests/CMakeFiles/recv_close_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_close_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_close_sanitized.dir/build.make tests/CMakeFiles/recv_close_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=47 "Finished codegen for target recv_close_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=42 "Finished codegen for target recv_close_sanitized"
 .PHONY : tests/CMakeFiles/recv_close_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7269,12 +7458,12 @@ tests/CMakeFiles/recv_close.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_close.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_close.dir/build.make tests/CMakeFiles/recv_close.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_close.dir/build.make tests/CMakeFiles/recv_close.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=45,46 "Built target recv_close"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=41 "Built target recv_close"
 .PHONY : tests/CMakeFiles/recv_close.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_close.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_close.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_close.dir/rule
@@ -7286,7 +7475,7 @@ recv_close: tests/CMakeFiles/recv_close.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_close.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_close.dir/build.make tests/CMakeFiles/recv_close.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=45,46 "Finished codegen for target recv_close"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=41 "Finished codegen for target recv_close"
 .PHONY : tests/CMakeFiles/recv_close.dir/codegen
 
 # clean rule for target.
@@ -7303,12 +7492,12 @@ tests/CMakeFiles/recv_special_sanitized.dir/all: src/CMakeFiles/minnow_sanitized
 tests/CMakeFiles/recv_special_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special_sanitized.dir/build.make tests/CMakeFiles/recv_special_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special_sanitized.dir/build.make tests/CMakeFiles/recv_special_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=55 "Built target recv_special_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=49 "Built target recv_special_sanitized"
 .PHONY : tests/CMakeFiles/recv_special_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/recv_special_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/recv_special_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/recv_special_sanitized.dir/rule
@@ -7320,7 +7509,7 @@ recv_special_sanitized: tests/CMakeFiles/recv_special_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_special_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special_sanitized.dir/build.make tests/CMakeFiles/recv_special_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=55 "Finished codegen for target recv_special_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=49 "Finished codegen for target recv_special_sanitized"
 .PHONY : tests/CMakeFiles/recv_special_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7337,7 +7526,7 @@ tests/CMakeFiles/recv_special.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/recv_special.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special.dir/build.make tests/CMakeFiles/recv_special.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special.dir/build.make tests/CMakeFiles/recv_special.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=54 "Built target recv_special"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=48 "Built target recv_special"
 .PHONY : tests/CMakeFiles/recv_special.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7354,13 +7543,489 @@ recv_special: tests/CMakeFiles/recv_special.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/recv_special.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special.dir/build.make tests/CMakeFiles/recv_special.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=54 "Finished codegen for target recv_special"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=48 "Finished codegen for target recv_special"
 .PHONY : tests/CMakeFiles/recv_special.dir/codegen
 
 # clean rule for target.
 tests/CMakeFiles/recv_special.dir/clean:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/recv_special.dir/build.make tests/CMakeFiles/recv_special.dir/clean
 .PHONY : tests/CMakeFiles/recv_special.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_connect_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_connect_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_connect_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_connect_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect_sanitized.dir/build.make tests/CMakeFiles/send_connect_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect_sanitized.dir/build.make tests/CMakeFiles/send_connect_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=58 "Built target send_connect_sanitized"
+.PHONY : tests/CMakeFiles/send_connect_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_connect_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_connect_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_connect_sanitized.dir/rule
+
+# Convenience name for target.
+send_connect_sanitized: tests/CMakeFiles/send_connect_sanitized.dir/rule
+.PHONY : send_connect_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_connect_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect_sanitized.dir/build.make tests/CMakeFiles/send_connect_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=58 "Finished codegen for target send_connect_sanitized"
+.PHONY : tests/CMakeFiles/send_connect_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_connect_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect_sanitized.dir/build.make tests/CMakeFiles/send_connect_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_connect_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_connect.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_connect.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_connect.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_connect.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect.dir/build.make tests/CMakeFiles/send_connect.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect.dir/build.make tests/CMakeFiles/send_connect.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=57 "Built target send_connect"
+.PHONY : tests/CMakeFiles/send_connect.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_connect.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_connect.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_connect.dir/rule
+
+# Convenience name for target.
+send_connect: tests/CMakeFiles/send_connect.dir/rule
+.PHONY : send_connect
+
+# codegen rule for target.
+tests/CMakeFiles/send_connect.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect.dir/build.make tests/CMakeFiles/send_connect.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=57 "Finished codegen for target send_connect"
+.PHONY : tests/CMakeFiles/send_connect.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_connect.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_connect.dir/build.make tests/CMakeFiles/send_connect.dir/clean
+.PHONY : tests/CMakeFiles/send_connect.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_transmit_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_transmit_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_transmit_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_transmit_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit_sanitized.dir/build.make tests/CMakeFiles/send_transmit_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit_sanitized.dir/build.make tests/CMakeFiles/send_transmit_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=63 "Built target send_transmit_sanitized"
+.PHONY : tests/CMakeFiles/send_transmit_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_transmit_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_transmit_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_transmit_sanitized.dir/rule
+
+# Convenience name for target.
+send_transmit_sanitized: tests/CMakeFiles/send_transmit_sanitized.dir/rule
+.PHONY : send_transmit_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_transmit_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit_sanitized.dir/build.make tests/CMakeFiles/send_transmit_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=63 "Finished codegen for target send_transmit_sanitized"
+.PHONY : tests/CMakeFiles/send_transmit_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_transmit_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit_sanitized.dir/build.make tests/CMakeFiles/send_transmit_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_transmit_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_transmit.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_transmit.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_transmit.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_transmit.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit.dir/build.make tests/CMakeFiles/send_transmit.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit.dir/build.make tests/CMakeFiles/send_transmit.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=62 "Built target send_transmit"
+.PHONY : tests/CMakeFiles/send_transmit.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_transmit.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_transmit.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_transmit.dir/rule
+
+# Convenience name for target.
+send_transmit: tests/CMakeFiles/send_transmit.dir/rule
+.PHONY : send_transmit
+
+# codegen rule for target.
+tests/CMakeFiles/send_transmit.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit.dir/build.make tests/CMakeFiles/send_transmit.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=62 "Finished codegen for target send_transmit"
+.PHONY : tests/CMakeFiles/send_transmit.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_transmit.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_transmit.dir/build.make tests/CMakeFiles/send_transmit.dir/clean
+.PHONY : tests/CMakeFiles/send_transmit.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_window_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_window_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_window_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_window_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window_sanitized.dir/build.make tests/CMakeFiles/send_window_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window_sanitized.dir/build.make tests/CMakeFiles/send_window_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=65 "Built target send_window_sanitized"
+.PHONY : tests/CMakeFiles/send_window_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_window_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_window_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_window_sanitized.dir/rule
+
+# Convenience name for target.
+send_window_sanitized: tests/CMakeFiles/send_window_sanitized.dir/rule
+.PHONY : send_window_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_window_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window_sanitized.dir/build.make tests/CMakeFiles/send_window_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=65 "Finished codegen for target send_window_sanitized"
+.PHONY : tests/CMakeFiles/send_window_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_window_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window_sanitized.dir/build.make tests/CMakeFiles/send_window_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_window_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_window.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_window.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_window.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_window.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window.dir/build.make tests/CMakeFiles/send_window.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window.dir/build.make tests/CMakeFiles/send_window.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=64 "Built target send_window"
+.PHONY : tests/CMakeFiles/send_window.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_window.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_window.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_window.dir/rule
+
+# Convenience name for target.
+send_window: tests/CMakeFiles/send_window.dir/rule
+.PHONY : send_window
+
+# codegen rule for target.
+tests/CMakeFiles/send_window.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window.dir/build.make tests/CMakeFiles/send_window.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=64 "Finished codegen for target send_window"
+.PHONY : tests/CMakeFiles/send_window.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_window.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_window.dir/build.make tests/CMakeFiles/send_window.dir/clean
+.PHONY : tests/CMakeFiles/send_window.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_ack_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_ack_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_ack_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_ack_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack_sanitized.dir/build.make tests/CMakeFiles/send_ack_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack_sanitized.dir/build.make tests/CMakeFiles/send_ack_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=54 "Built target send_ack_sanitized"
+.PHONY : tests/CMakeFiles/send_ack_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_ack_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_ack_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_ack_sanitized.dir/rule
+
+# Convenience name for target.
+send_ack_sanitized: tests/CMakeFiles/send_ack_sanitized.dir/rule
+.PHONY : send_ack_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_ack_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack_sanitized.dir/build.make tests/CMakeFiles/send_ack_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=54 "Finished codegen for target send_ack_sanitized"
+.PHONY : tests/CMakeFiles/send_ack_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_ack_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack_sanitized.dir/build.make tests/CMakeFiles/send_ack_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_ack_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_ack.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_ack.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_ack.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_ack.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack.dir/build.make tests/CMakeFiles/send_ack.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack.dir/build.make tests/CMakeFiles/send_ack.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=53 "Built target send_ack"
+.PHONY : tests/CMakeFiles/send_ack.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_ack.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_ack.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_ack.dir/rule
+
+# Convenience name for target.
+send_ack: tests/CMakeFiles/send_ack.dir/rule
+.PHONY : send_ack
+
+# codegen rule for target.
+tests/CMakeFiles/send_ack.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack.dir/build.make tests/CMakeFiles/send_ack.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=53 "Finished codegen for target send_ack"
+.PHONY : tests/CMakeFiles/send_ack.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_ack.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_ack.dir/build.make tests/CMakeFiles/send_ack.dir/clean
+.PHONY : tests/CMakeFiles/send_ack.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_close_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_close_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_close_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_close_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close_sanitized.dir/build.make tests/CMakeFiles/send_close_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close_sanitized.dir/build.make tests/CMakeFiles/send_close_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=56 "Built target send_close_sanitized"
+.PHONY : tests/CMakeFiles/send_close_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_close_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_close_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_close_sanitized.dir/rule
+
+# Convenience name for target.
+send_close_sanitized: tests/CMakeFiles/send_close_sanitized.dir/rule
+.PHONY : send_close_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_close_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close_sanitized.dir/build.make tests/CMakeFiles/send_close_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=56 "Finished codegen for target send_close_sanitized"
+.PHONY : tests/CMakeFiles/send_close_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_close_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close_sanitized.dir/build.make tests/CMakeFiles/send_close_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_close_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_close.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_close.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_close.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_close.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close.dir/build.make tests/CMakeFiles/send_close.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close.dir/build.make tests/CMakeFiles/send_close.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=55 "Built target send_close"
+.PHONY : tests/CMakeFiles/send_close.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_close.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_close.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_close.dir/rule
+
+# Convenience name for target.
+send_close: tests/CMakeFiles/send_close.dir/rule
+.PHONY : send_close
+
+# codegen rule for target.
+tests/CMakeFiles/send_close.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close.dir/build.make tests/CMakeFiles/send_close.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=55 "Finished codegen for target send_close"
+.PHONY : tests/CMakeFiles/send_close.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_close.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_close.dir/build.make tests/CMakeFiles/send_close.dir/clean
+.PHONY : tests/CMakeFiles/send_close.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_retx_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_retx_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_retx_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_retx_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx_sanitized.dir/build.make tests/CMakeFiles/send_retx_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx_sanitized.dir/build.make tests/CMakeFiles/send_retx_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=61 "Built target send_retx_sanitized"
+.PHONY : tests/CMakeFiles/send_retx_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_retx_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_retx_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_retx_sanitized.dir/rule
+
+# Convenience name for target.
+send_retx_sanitized: tests/CMakeFiles/send_retx_sanitized.dir/rule
+.PHONY : send_retx_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_retx_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx_sanitized.dir/build.make tests/CMakeFiles/send_retx_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=61 "Finished codegen for target send_retx_sanitized"
+.PHONY : tests/CMakeFiles/send_retx_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_retx_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx_sanitized.dir/build.make tests/CMakeFiles/send_retx_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_retx_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_retx.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_retx.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_retx.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_retx.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx.dir/build.make tests/CMakeFiles/send_retx.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx.dir/build.make tests/CMakeFiles/send_retx.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target send_retx"
+.PHONY : tests/CMakeFiles/send_retx.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_retx.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_retx.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_retx.dir/rule
+
+# Convenience name for target.
+send_retx: tests/CMakeFiles/send_retx.dir/rule
+.PHONY : send_retx
+
+# codegen rule for target.
+tests/CMakeFiles/send_retx.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx.dir/build.make tests/CMakeFiles/send_retx.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target send_retx"
+.PHONY : tests/CMakeFiles/send_retx.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_retx.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_retx.dir/build.make tests/CMakeFiles/send_retx.dir/clean
+.PHONY : tests/CMakeFiles/send_retx.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_extra_sanitized.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_extra_sanitized.dir/all: util/CMakeFiles/util_sanitized.dir/all
+tests/CMakeFiles/send_extra_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/all
+tests/CMakeFiles/send_extra_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra_sanitized.dir/build.make tests/CMakeFiles/send_extra_sanitized.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra_sanitized.dir/build.make tests/CMakeFiles/send_extra_sanitized.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=60 "Built target send_extra_sanitized"
+.PHONY : tests/CMakeFiles/send_extra_sanitized.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_extra_sanitized.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_extra_sanitized.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_extra_sanitized.dir/rule
+
+# Convenience name for target.
+send_extra_sanitized: tests/CMakeFiles/send_extra_sanitized.dir/rule
+.PHONY : send_extra_sanitized
+
+# codegen rule for target.
+tests/CMakeFiles/send_extra_sanitized.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra_sanitized.dir/build.make tests/CMakeFiles/send_extra_sanitized.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=60 "Finished codegen for target send_extra_sanitized"
+.PHONY : tests/CMakeFiles/send_extra_sanitized.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_extra_sanitized.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra_sanitized.dir/build.make tests/CMakeFiles/send_extra_sanitized.dir/clean
+.PHONY : tests/CMakeFiles/send_extra_sanitized.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/send_extra.dir
+
+# All Build rule for target.
+tests/CMakeFiles/send_extra.dir/all: util/CMakeFiles/util_debug.dir/all
+tests/CMakeFiles/send_extra.dir/all: src/CMakeFiles/minnow_debug.dir/all
+tests/CMakeFiles/send_extra.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra.dir/build.make tests/CMakeFiles/send_extra.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra.dir/build.make tests/CMakeFiles/send_extra.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=59 "Built target send_extra"
+.PHONY : tests/CMakeFiles/send_extra.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/send_extra.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/send_extra.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/send_extra.dir/rule
+
+# Convenience name for target.
+send_extra: tests/CMakeFiles/send_extra.dir/rule
+.PHONY : send_extra
+
+# codegen rule for target.
+tests/CMakeFiles/send_extra.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra.dir/build.make tests/CMakeFiles/send_extra.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=59 "Finished codegen for target send_extra"
+.PHONY : tests/CMakeFiles/send_extra.dir/codegen
+
+# clean rule for target.
+tests/CMakeFiles/send_extra.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/send_extra.dir/build.make tests/CMakeFiles/send_extra.dir/clean
+.PHONY : tests/CMakeFiles/send_extra.dir/clean
 
 #=============================================================================
 # Target rules for target tests/CMakeFiles/no_skip_sanitized.dir
@@ -7371,12 +8036,12 @@ tests/CMakeFiles/no_skip_sanitized.dir/all: src/CMakeFiles/minnow_sanitized.dir/
 tests/CMakeFiles/no_skip_sanitized.dir/all: tests/CMakeFiles/minnow_testing_sanitized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/no_skip_sanitized.dir/build.make tests/CMakeFiles/no_skip_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/no_skip_sanitized.dir/build.make tests/CMakeFiles/no_skip_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=29 "Built target no_skip_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=27 "Built target no_skip_sanitized"
 .PHONY : tests/CMakeFiles/no_skip_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/no_skip_sanitized.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/no_skip_sanitized.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/no_skip_sanitized.dir/rule
@@ -7388,7 +8053,7 @@ no_skip_sanitized: tests/CMakeFiles/no_skip_sanitized.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/no_skip_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/no_skip_sanitized.dir/build.make tests/CMakeFiles/no_skip_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=29 "Finished codegen for target no_skip_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=27 "Finished codegen for target no_skip_sanitized"
 .PHONY : tests/CMakeFiles/no_skip_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7405,12 +8070,12 @@ tests/CMakeFiles/no_skip.dir/all: src/CMakeFiles/minnow_debug.dir/all
 tests/CMakeFiles/no_skip.dir/all: tests/CMakeFiles/minnow_testing_debug.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/no_skip.dir/build.make tests/CMakeFiles/no_skip.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/no_skip.dir/build.make tests/CMakeFiles/no_skip.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=27,28 "Built target no_skip"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=26 "Built target no_skip"
 .PHONY : tests/CMakeFiles/no_skip.dir/all
 
 # Build rule for subdir invocation for target.
 tests/CMakeFiles/no_skip.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 15
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/no_skip.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : tests/CMakeFiles/no_skip.dir/rule
@@ -7422,7 +8087,7 @@ no_skip: tests/CMakeFiles/no_skip.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/no_skip.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/no_skip.dir/build.make tests/CMakeFiles/no_skip.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=27,28 "Finished codegen for target no_skip"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=26 "Finished codegen for target no_skip"
 .PHONY : tests/CMakeFiles/no_skip.dir/codegen
 
 # clean rule for target.
@@ -7438,7 +8103,7 @@ tests/CMakeFiles/byte_stream_speed_test.dir/all: util/CMakeFiles/util_optimized.
 tests/CMakeFiles/byte_stream_speed_test.dir/all: src/CMakeFiles/minnow_optimized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_speed_test.dir/build.make tests/CMakeFiles/byte_stream_speed_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_speed_test.dir/build.make tests/CMakeFiles/byte_stream_speed_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=9 "Built target byte_stream_speed_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=8 "Built target byte_stream_speed_test"
 .PHONY : tests/CMakeFiles/byte_stream_speed_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7455,7 +8120,7 @@ byte_stream_speed_test: tests/CMakeFiles/byte_stream_speed_test.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/byte_stream_speed_test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/byte_stream_speed_test.dir/build.make tests/CMakeFiles/byte_stream_speed_test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=9 "Finished codegen for target byte_stream_speed_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=8 "Finished codegen for target byte_stream_speed_test"
 .PHONY : tests/CMakeFiles/byte_stream_speed_test.dir/codegen
 
 # clean rule for target.
@@ -7471,7 +8136,7 @@ tests/CMakeFiles/reassembler_speed_test.dir/all: util/CMakeFiles/util_optimized.
 tests/CMakeFiles/reassembler_speed_test.dir/all: src/CMakeFiles/minnow_optimized.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_speed_test.dir/build.make tests/CMakeFiles/reassembler_speed_test.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_speed_test.dir/build.make tests/CMakeFiles/reassembler_speed_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=42 "Built target reassembler_speed_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=38 "Built target reassembler_speed_test"
 .PHONY : tests/CMakeFiles/reassembler_speed_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7488,7 +8153,7 @@ reassembler_speed_test: tests/CMakeFiles/reassembler_speed_test.dir/rule
 # codegen rule for target.
 tests/CMakeFiles/reassembler_speed_test.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/reassembler_speed_test.dir/build.make tests/CMakeFiles/reassembler_speed_test.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=42 "Finished codegen for target reassembler_speed_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=38 "Finished codegen for target reassembler_speed_test"
 .PHONY : tests/CMakeFiles/reassembler_speed_test.dir/codegen
 
 # clean rule for target.
@@ -7503,7 +8168,7 @@ tests/CMakeFiles/reassembler_speed_test.dir/clean:
 apps/CMakeFiles/stream_copy.dir/all:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/stream_copy.dir/build.make apps/CMakeFiles/stream_copy.dir/depend
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/stream_copy.dir/build.make apps/CMakeFiles/stream_copy.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=60 "Built target stream_copy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=66 "Built target stream_copy"
 .PHONY : apps/CMakeFiles/stream_copy.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7520,7 +8185,7 @@ stream_copy: apps/CMakeFiles/stream_copy.dir/rule
 # codegen rule for target.
 apps/CMakeFiles/stream_copy.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/stream_copy.dir/build.make apps/CMakeFiles/stream_copy.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=60 "Finished codegen for target stream_copy"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=66 "Finished codegen for target stream_copy"
 .PHONY : apps/CMakeFiles/stream_copy.dir/codegen
 
 # clean rule for target.
@@ -7535,7 +8200,7 @@ apps/CMakeFiles/stream_copy.dir/clean:
 apps/CMakeFiles/stream_sanitized.dir/all:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/stream_sanitized.dir/build.make apps/CMakeFiles/stream_sanitized.dir/depend
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/stream_sanitized.dir/build.make apps/CMakeFiles/stream_sanitized.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=61 "Built target stream_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=67 "Built target stream_sanitized"
 .PHONY : apps/CMakeFiles/stream_sanitized.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7552,7 +8217,7 @@ stream_sanitized: apps/CMakeFiles/stream_sanitized.dir/rule
 # codegen rule for target.
 apps/CMakeFiles/stream_sanitized.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/stream_sanitized.dir/build.make apps/CMakeFiles/stream_sanitized.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=61 "Finished codegen for target stream_sanitized"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=67 "Finished codegen for target stream_sanitized"
 .PHONY : apps/CMakeFiles/stream_sanitized.dir/codegen
 
 # clean rule for target.
@@ -7569,7 +8234,7 @@ apps/CMakeFiles/webget.dir/all: src/CMakeFiles/minnow_debug.dir/all
 apps/CMakeFiles/webget.dir/all: apps/CMakeFiles/stream_copy.dir/all
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/webget.dir/build.make apps/CMakeFiles/webget.dir/depend
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/webget.dir/build.make apps/CMakeFiles/webget.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=89 "Built target webget"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=91 "Built target webget"
 .PHONY : apps/CMakeFiles/webget.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7586,7 +8251,7 @@ webget: apps/CMakeFiles/webget.dir/rule
 # codegen rule for target.
 apps/CMakeFiles/webget.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/webget.dir/build.make apps/CMakeFiles/webget.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=89 "Finished codegen for target webget"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=91 "Finished codegen for target webget"
 .PHONY : apps/CMakeFiles/webget.dir/codegen
 
 # clean rule for target.
@@ -7603,12 +8268,12 @@ apps/CMakeFiles/tcp_native.dir/all: src/CMakeFiles/minnow_debug.dir/all
 apps/CMakeFiles/tcp_native.dir/all: apps/CMakeFiles/stream_copy.dir/all
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_native.dir/build.make apps/CMakeFiles/tcp_native.dir/depend
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_native.dir/build.make apps/CMakeFiles/tcp_native.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=62 "Built target tcp_native"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target tcp_native"
 .PHONY : apps/CMakeFiles/tcp_native.dir/all
 
 # Build rule for subdir invocation for target.
 apps/CMakeFiles/tcp_native.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/CMakeFiles/tcp_native.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : apps/CMakeFiles/tcp_native.dir/rule
@@ -7620,13 +8285,47 @@ tcp_native: apps/CMakeFiles/tcp_native.dir/rule
 # codegen rule for target.
 apps/CMakeFiles/tcp_native.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_native.dir/build.make apps/CMakeFiles/tcp_native.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=62 "Finished codegen for target tcp_native"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target tcp_native"
 .PHONY : apps/CMakeFiles/tcp_native.dir/codegen
 
 # clean rule for target.
 apps/CMakeFiles/tcp_native.dir/clean:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_native.dir/build.make apps/CMakeFiles/tcp_native.dir/clean
 .PHONY : apps/CMakeFiles/tcp_native.dir/clean
+
+#=============================================================================
+# Target rules for target apps/CMakeFiles/tcp_ipv4.dir
+
+# All Build rule for target.
+apps/CMakeFiles/tcp_ipv4.dir/all: util/CMakeFiles/util_debug.dir/all
+apps/CMakeFiles/tcp_ipv4.dir/all: src/CMakeFiles/minnow_debug.dir/all
+apps/CMakeFiles/tcp_ipv4.dir/all: apps/CMakeFiles/stream_copy.dir/all
+	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/depend
+	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=68 "Built target tcp_ipv4"
+.PHONY : apps/CMakeFiles/tcp_ipv4.dir/all
+
+# Build rule for subdir invocation for target.
+apps/CMakeFiles/tcp_ipv4.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/CMakeFiles/tcp_ipv4.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
+.PHONY : apps/CMakeFiles/tcp_ipv4.dir/rule
+
+# Convenience name for target.
+tcp_ipv4: apps/CMakeFiles/tcp_ipv4.dir/rule
+.PHONY : tcp_ipv4
+
+# codegen rule for target.
+apps/CMakeFiles/tcp_ipv4.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=68 "Finished codegen for target tcp_ipv4"
+.PHONY : apps/CMakeFiles/tcp_ipv4.dir/codegen
+
+# clean rule for target.
+apps/CMakeFiles/tcp_ipv4.dir/clean:
+	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/clean
+.PHONY : apps/CMakeFiles/tcp_ipv4.dir/clean
 
 #=============================================================================
 # Target rules for target apps/CMakeFiles/ip_raw.dir
@@ -7637,12 +8336,12 @@ apps/CMakeFiles/ip_raw.dir/all: src/CMakeFiles/minnow_debug.dir/all
 apps/CMakeFiles/ip_raw.dir/all: apps/CMakeFiles/stream_copy.dir/all
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/ip_raw.dir/build.make apps/CMakeFiles/ip_raw.dir/depend
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/ip_raw.dir/build.make apps/CMakeFiles/ip_raw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=15 "Built target ip_raw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Built target ip_raw"
 .PHONY : apps/CMakeFiles/ip_raw.dir/all
 
 # Build rule for subdir invocation for target.
 apps/CMakeFiles/ip_raw.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/CMakeFiles/ip_raw.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles 0
 .PHONY : apps/CMakeFiles/ip_raw.dir/rule
@@ -7654,7 +8353,7 @@ ip_raw: apps/CMakeFiles/ip_raw.dir/rule
 # codegen rule for target.
 apps/CMakeFiles/ip_raw.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f apps/CMakeFiles/ip_raw.dir/build.make apps/CMakeFiles/ip_raw.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num=15 "Finished codegen for target ip_raw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/ada/CS-Systems-Internals/CS144-minnow/build/CMakeFiles --progress-num= "Finished codegen for target ip_raw"
 .PHONY : apps/CMakeFiles/ip_raw.dir/codegen
 
 # clean rule for target.

@@ -183,6 +183,20 @@ tcp_native/fast:
 .PHONY : tcp_native/fast
 
 # Convenience name for target.
+apps/CMakeFiles/tcp_ipv4.dir/rule:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/CMakeFiles/tcp_ipv4.dir/rule
+.PHONY : apps/CMakeFiles/tcp_ipv4.dir/rule
+
+# Convenience name for target.
+tcp_ipv4: apps/CMakeFiles/tcp_ipv4.dir/rule
+.PHONY : tcp_ipv4
+
+# fast build rule for target.
+tcp_ipv4/fast:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/build
+.PHONY : tcp_ipv4/fast
+
+# Convenience name for target.
 apps/CMakeFiles/ip_raw.dir/rule:
 	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 apps/CMakeFiles/ip_raw.dir/rule
 .PHONY : apps/CMakeFiles/ip_raw.dir/rule
@@ -247,6 +261,30 @@ ip_raw.cc.s:
 	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f apps/CMakeFiles/ip_raw.dir/build.make apps/CMakeFiles/ip_raw.dir/ip_raw.cc.s
 .PHONY : ip_raw.cc.s
 
+tcp_ipv4.o: tcp_ipv4.cc.o
+.PHONY : tcp_ipv4.o
+
+# target to build an object file
+tcp_ipv4.cc.o:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/tcp_ipv4.cc.o
+.PHONY : tcp_ipv4.cc.o
+
+tcp_ipv4.i: tcp_ipv4.cc.i
+.PHONY : tcp_ipv4.i
+
+# target to preprocess a source file
+tcp_ipv4.cc.i:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/tcp_ipv4.cc.i
+.PHONY : tcp_ipv4.cc.i
+
+tcp_ipv4.s: tcp_ipv4.cc.s
+.PHONY : tcp_ipv4.s
+
+# target to generate assembly for a file
+tcp_ipv4.cc.s:
+	cd /home/ada/CS-Systems-Internals/CS144-minnow/build && $(MAKE) $(MAKESILENT) -f apps/CMakeFiles/tcp_ipv4.dir/build.make apps/CMakeFiles/tcp_ipv4.dir/tcp_ipv4.cc.s
+.PHONY : tcp_ipv4.cc.s
+
 tcp_native.o: tcp_native.cc.o
 .PHONY : tcp_native.o
 
@@ -307,6 +345,7 @@ help:
 	@echo "... ip_raw"
 	@echo "... stream_copy"
 	@echo "... stream_sanitized"
+	@echo "... tcp_ipv4"
 	@echo "... tcp_native"
 	@echo "... webget"
 	@echo "... bidirectional_stream_copy.o"
@@ -315,6 +354,9 @@ help:
 	@echo "... ip_raw.o"
 	@echo "... ip_raw.i"
 	@echo "... ip_raw.s"
+	@echo "... tcp_ipv4.o"
+	@echo "... tcp_ipv4.i"
+	@echo "... tcp_ipv4.s"
 	@echo "... tcp_native.o"
 	@echo "... tcp_native.i"
 	@echo "... tcp_native.s"

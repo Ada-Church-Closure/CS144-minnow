@@ -1,96 +1,181 @@
-Start testing: Dec 29 21:00 CST
+Start testing: Dec 30 11:19 CST
 ----------------------------------------------------------
 1/40 Testing: compile with bug-checkers
 1/40 Test: compile with bug-checkers
 Command: "/usr/bin/cmake" "--build" "/home/ada/CS-Systems-Internals/CS144-minnow/build" "-t" "functionality_testing" "webget"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"compile with bug-checkers" start time: Dec 29 21:00 CST
+"compile with bug-checkers" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 make[4]: warning: -j32 forced in submake: resetting jobserver mode.
-[  1%] Built target minnow_testing_debug
-[  2%] Built target minnow_testing_sanitized
-[  6%] Built target minnow_debug
-[ 17%] Built target util_sanitized
-[ 20%] Built target minnow_sanitized
-[ 32%] Built target util_debug
-[ 34%] Built target byte_stream_one_write_sanitized
-[ 34%] Built target byte_stream_capacity_sanitized
-[ 37%] Built target reassembler_cap
-[ 37%] Built target byte_stream_many_writes
-[ 38%] Built target byte_stream_basics_sanitized
-[ 39%] Built target reassembler_seq_sanitized
-[ 40%] Built target byte_stream_stress_test
-[ 41%] Built target byte_stream_two_writes_sanitized
-[ 43%] Built target byte_stream_many_writes_sanitized
-[ 45%] Built target wrapping_integers_wrap_sanitized
-[ 46%] Built target reassembler_seq
-[ 50%] Built target reassembler_single_sanitized
+[  1%] Built target minnow_testing_sanitized
+[  2%] Built target minnow_testing_debug
+[  2%] [32mBuilding CXX object src/CMakeFiles/minnow_debug.dir/tcp_sender.cc.o[0m
+[  2%] [32mBuilding CXX object src/CMakeFiles/minnow_sanitized.dir/tcp_sender.cc.o[0m
+[ 12%] Built target util_debug
+[ 20%] Built target util_sanitized
+[ 20%] [1m[32mLinking CXX static library libminnow_debug.a[0m
+[ 25%] Built target minnow_debug
+[ 25%] [1m[32mLinking CXX executable byte_stream_basics[0m
+[ 26%] [1m[32mLinking CXX executable no_skip[0m
+[ 26%] [1m[32mLinking CXX executable reassembler_dup[0m
+[ 26%] [1m[32mLinking CXX executable byte_stream_capacity[0m
+[ 26%] [1m[32mLinking CXX executable wrapping_integers_extra[0m
+[ 26%] [1m[32mLinking CXX executable reassembler_holes[0m
+[ 30%] [1m[32mLinking CXX executable reassembler_seq[0m
+[ 30%] [1m[32mLinking CXX executable reassembler_cap[0m
+[ 31%] [1m[32mLinking CXX executable recv_reorder[0m
+[ 34%] [1m[32mLinking CXX executable byte_stream_one_write[0m
+[ 34%] [1m[32mLinking CXX executable recv_connect[0m
+[ 35%] [1m[32mLinking CXX executable recv_window[0m
+[ 31%] [1m[32mLinking CXX executable wrapping_integers_unwrap[0m
+[ 37%] [1m[32mLinking CXX executable recv_close[0m
+[ 37%] [1m[32mLinking CXX executable reassembler_overlapping[0m
+[ 37%] [1m[32mLinking CXX executable recv_transmit[0m
+[ 31%] [1m[32mLinking CXX executable byte_stream_stress_test[0m
+[ 37%] [1m[32mLinking CXX executable recv_special[0m
+[ 37%] [1m[32mLinking CXX executable send_transmit[0m
+[ 31%] [1m[32mLinking CXX executable byte_stream_two_writes[0m
+[ 39%] [1m[32mLinking CXX executable send_connect[0m
+[ 40%] [1m[32mLinking CXX executable wrapping_integers_wrap[0m
+[ 40%] [1m[32mLinking CXX executable recv_reorder_more[0m
+[ 40%] [1m[32mLinking CXX executable wrapping_integers_roundtrip[0m
+[ 40%] [1m[32mLinking CXX executable send_ack[0m
+[ 40%] [1m[32mLinking CXX executable send_close[0m
+[ 40%] [1m[32mLinking CXX executable reassembler_single[0m
+[ 40%] [1m[32mLinking CXX executable send_window[0m
+[ 40%] [1m[32mLinking CXX executable byte_stream_many_writes[0m
+[ 40%] [1m[32mLinking CXX executable reassembler_win[0m
+[ 41%] [1m[32mLinking CXX executable wrapping_integers_cmp[0m
+[ 41%] [1m[32mLinking CXX static library libminnow_sanitized.a[0m
+[ 41%] Built target no_skip
+[ 42%] Built target wrapping_integers_roundtrip
+[ 42%] Built target wrapping_integers_wrap
+[ 42%] Built target wrapping_integers_unwrap
+[ 42%] [1m[32mLinking CXX executable send_retx[0m
+[ 43%] Built target wrapping_integers_extra
+[ 45%] Built target reassembler_holes
+[ 45%] Built target wrapping_integers_cmp
+[ 46%] [1m[32mLinking CXX executable send_extra[0m
+[ 47%] Built target byte_stream_two_writes
+[ 47%] Built target recv_window
+[ 48%] Built target send_transmit
+[ 50%] Built target send_ack
+[ 50%] Built target reassembler_overlapping
+[ 50%] Built target recv_reorder
 [ 50%] Built target reassembler_single
-[ 50%] Built target reassembler_dup
-[ 53%] Built target reassembler_dup_sanitized
-[ 53%] Built target byte_stream_two_writes
-[ 54%] Built target reassembler_cap_sanitized
-[ 55%] Built target byte_stream_stress_test_sanitized
-[ 58%] Built target reassembler_holes_sanitized
-[ 58%] Built target reassembler_overlapping
-[ 59%] Built target wrapping_integers_unwrap
-[ 60%] Built target reassembler_overlapping_sanitized
-[ 61%] Built target reassembler_win_sanitized
-[ 62%] Built target wrapping_integers_wrap
-[ 64%] Built target wrapping_integers_cmp
-[ 65%] Built target reassembler_holes
-[ 66%] Built target wrapping_integers_unwrap_sanitized
-[ 70%] Built target wrapping_integers_extra_sanitized
-[ 70%] Built target reassembler_win
-[ 70%] Built target wrapping_integers_cmp_sanitized
-[ 71%] Built target wrapping_integers_roundtrip
-[ 72%] Built target wrapping_integers_roundtrip_sanitized
-[ 74%] Built target wrapping_integers_extra
-[ 75%] Built target recv_connect_sanitized
-[ 77%] Built target no_skip
-[ 79%] Built target recv_connect
-[ 80%] Built target recv_reorder_more_sanitized
-[ 81%] Built target recv_transmit_sanitized
-[ 82%] Built target byte_stream_capacity
-[ 83%] Built target byte_stream_basics
-[ 86%] Built target recv_close
-[ 88%] Built target recv_window_sanitized
-[ 88%] Built target recv_transmit
-[ 90%] Built target recv_reorder_more
-[ 91%] Built target recv_reorder_sanitized
-[ 92%] Built target recv_window
-[ 93%] Built target recv_reorder
-[ 95%] Built target recv_close_sanitized
-[ 96%] Built target no_skip_sanitized
-[ 97%] Built target recv_special
-[ 98%] Built target recv_special_sanitized
-[100%] Built target byte_stream_one_write
+[ 50%] Built target byte_stream_basics
+[ 50%] Built target reassembler_cap
+[ 50%] Built target byte_stream_stress_test
+[ 51%] Built target recv_special
+[ 52%] Built target reassembler_dup
+[ 52%] Built target recv_transmit
+[ 53%] Built target send_window
+[ 53%] Built target reassembler_seq
+[ 53%] Built target recv_connect
+[ 53%] Built target send_connect
+[ 54%] Built target send_close
+[ 56%] Built target byte_stream_many_writes
+[ 56%] Built target recv_close
+[ 57%] Built target recv_reorder_more
+[ 58%] Built target byte_stream_capacity
+[ 58%] Built target byte_stream_one_write
+[ 62%] Built target minnow_sanitized
+[ 63%] Built target reassembler_win
+[ 63%] [1m[32mLinking CXX executable byte_stream_stress_test_sanitized[0m
+[ 64%] [1m[32mLinking CXX executable reassembler_seq_sanitized[0m
+[ 64%] [1m[32mLinking CXX executable byte_stream_two_writes_sanitized[0m
+[ 64%] [1m[32mLinking CXX executable reassembler_single_sanitized[0m
+[ 65%] [1m[32mLinking CXX executable byte_stream_many_writes_sanitized[0m
+[ 65%] [1m[32mLinking CXX executable byte_stream_basics_sanitized[0m
+[ 67%] [1m[32mLinking CXX executable byte_stream_one_write_sanitized[0m
+[ 67%] [1m[32mLinking CXX executable reassembler_holes_sanitized[0m
+[ 67%] [1m[32mLinking CXX executable byte_stream_capacity_sanitized[0m
+[ 69%] [1m[32mLinking CXX executable wrapping_integers_unwrap_sanitized[0m
+[ 69%] [1m[32mLinking CXX executable reassembler_overlapping_sanitized[0m
+[ 69%] [1m[32mLinking CXX executable reassembler_dup_sanitized[0m
+[ 69%] [1m[32mLinking CXX executable reassembler_win_sanitized[0m
+[ 70%] [1m[32mLinking CXX executable wrapping_integers_wrap_sanitized[0m
+[ 70%] [1m[32mLinking CXX executable reassembler_cap_sanitized[0m
+[ 70%] [1m[32mLinking CXX executable wrapping_integers_cmp_sanitized[0m
+[ 70%] [1m[32mLinking CXX executable recv_window_sanitized[0m
+[ 70%] [1m[32mLinking CXX executable recv_reorder_sanitized[0m
+[ 70%] [1m[32mLinking CXX executable wrapping_integers_roundtrip_sanitized[0m
+[ 73%] [1m[32mLinking CXX executable recv_transmit_sanitized[0m
+[ 73%] [1m[32mLinking CXX executable recv_connect_sanitized[0m
+[ 74%] [1m[32mLinking CXX executable recv_close_sanitized[0m
+[ 74%] [1m[32mLinking CXX executable wrapping_integers_extra_sanitized[0m
+[ 75%] [1m[32mLinking CXX executable recv_special_sanitized[0m
+[ 75%] [1m[32mLinking CXX executable recv_reorder_more_sanitized[0m
+[ 75%] [1m[32mLinking CXX executable send_ack_sanitized[0m
+[ 76%] [1m[32mLinking CXX executable send_connect_sanitized[0m
+[ 78%] [1m[32mLinking CXX executable send_window_sanitized[0m
+[ 78%] [1m[32mLinking CXX executable send_transmit_sanitized[0m
+[ 78%] [1m[32mLinking CXX executable send_close_sanitized[0m
+[ 78%] Built target send_retx
+[ 78%] Built target send_extra
+[ 78%] [1m[32mLinking CXX executable send_retx_sanitized[0m
+[ 79%] [1m[32mLinking CXX executable send_extra_sanitized[0m
+[ 80%] Built target wrapping_integers_extra_sanitized
+[ 80%] Built target wrapping_integers_unwrap_sanitized
+[ 80%] Built target wrapping_integers_wrap_sanitized
+[ 80%] Built target wrapping_integers_cmp_sanitized
+[ 81%] Built target wrapping_integers_roundtrip_sanitized
+[ 82%] [1m[32mLinking CXX executable no_skip_sanitized[0m
+[ 84%] Built target byte_stream_capacity_sanitized
+[ 84%] Built target byte_stream_one_write_sanitized
+[ 85%] Built target reassembler_single_sanitized
+[ 85%] Built target byte_stream_many_writes_sanitized
+[ 86%] Built target byte_stream_two_writes_sanitized
+[ 86%] Built target recv_connect_sanitized
+[ 87%] Built target recv_reorder_sanitized
+[ 89%] Built target byte_stream_basics_sanitized
+[ 89%] Built target recv_close_sanitized
+[ 89%] Built target reassembler_seq_sanitized
+[ 90%] Built target recv_reorder_more_sanitized
+[ 90%] Built target reassembler_overlapping_sanitized
+[ 90%] Built target reassembler_cap_sanitized
+[ 91%] Built target reassembler_dup_sanitized
+[ 92%] Built target reassembler_win_sanitized
+[ 92%] Built target recv_window_sanitized
+[ 93%] Built target send_ack_sanitized
+[ 93%] Built target recv_transmit_sanitized
+[ 95%] Built target send_transmit_sanitized
+[ 96%] Built target byte_stream_stress_test_sanitized
+[ 96%] Built target send_connect_sanitized
+[ 97%] Built target send_retx_sanitized
+[ 97%] Built target recv_special_sanitized
+[ 98%] Built target reassembler_holes_sanitized
+[ 98%] Built target no_skip_sanitized
+[ 98%] Built target send_window_sanitized
+[100%] Built target send_close_sanitized
+[100%] Built target send_extra_sanitized
 [100%] Built target functionality_testing
 [  7%] Built target stream_copy
-[ 28%] Built target minnow_debug
+[ 35%] Built target minnow_debug
 [ 92%] Built target util_debug
+[100%] [1m[32mLinking CXX executable webget[0m
 [100%] Built target webget
 <end of output>
-Test time =   0.28 sec
+Test time =   1.96 sec
 ----------------------------------------------------------
 Test Passed.
-"compile with bug-checkers" end time: Dec 29 21:00 CST
-"compile with bug-checkers" time elapsed: 00:00:00
+"compile with bug-checkers" end time: Dec 30 11:19 CST
+"compile with bug-checkers" time elapsed: 00:00:01
 ----------------------------------------------------------
 
 3/40 Testing: byte_stream_basics
 3/40 Test: byte_stream_basics
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_basics_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_basics" start time: Dec 29 21:00 CST
+"byte_stream_basics" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_basics" end time: Dec 29 21:00 CST
+"byte_stream_basics" end time: Dec 30 11:19 CST
 "byte_stream_basics" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -98,14 +183,14 @@ Test Passed.
 4/40 Test: byte_stream_capacity
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_capacity_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_capacity" start time: Dec 29 21:00 CST
+"byte_stream_capacity" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_capacity" end time: Dec 29 21:00 CST
+"byte_stream_capacity" end time: Dec 30 11:19 CST
 "byte_stream_capacity" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -113,14 +198,14 @@ Test Passed.
 5/40 Test: byte_stream_one_write
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_one_write_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_one_write" start time: Dec 29 21:00 CST
+"byte_stream_one_write" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_one_write" end time: Dec 29 21:00 CST
+"byte_stream_one_write" end time: Dec 30 11:19 CST
 "byte_stream_one_write" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -128,14 +213,14 @@ Test Passed.
 6/40 Test: byte_stream_two_writes
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_two_writes_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_two_writes" start time: Dec 29 21:00 CST
+"byte_stream_two_writes" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_two_writes" end time: Dec 29 21:00 CST
+"byte_stream_two_writes" end time: Dec 30 11:19 CST
 "byte_stream_two_writes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -143,14 +228,14 @@ Test Passed.
 7/40 Test: byte_stream_many_writes
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_many_writes_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_many_writes" start time: Dec 29 21:00 CST
+"byte_stream_many_writes" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.08 sec
+Test time =   0.07 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_many_writes" end time: Dec 29 21:00 CST
+"byte_stream_many_writes" end time: Dec 30 11:19 CST
 "byte_stream_many_writes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -158,14 +243,14 @@ Test Passed.
 8/40 Test: byte_stream_stress_test
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_stress_test_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_stress_test" start time: Dec 29 21:00 CST
+"byte_stream_stress_test" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_stress_test" end time: Dec 29 21:00 CST
+"byte_stream_stress_test" end time: Dec 30 11:19 CST
 "byte_stream_stress_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -173,14 +258,14 @@ Test Passed.
 9/40 Test: reassembler_single
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_single_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_single" start time: Dec 29 21:00 CST
+"reassembler_single" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_single" end time: Dec 29 21:00 CST
+"reassembler_single" end time: Dec 30 11:19 CST
 "reassembler_single" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -188,14 +273,14 @@ Test Passed.
 10/40 Test: reassembler_cap
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_cap_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_cap" start time: Dec 29 21:00 CST
+"reassembler_cap" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.02 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_cap" end time: Dec 29 21:00 CST
+"reassembler_cap" end time: Dec 30 11:19 CST
 "reassembler_cap" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -203,14 +288,14 @@ Test Passed.
 11/40 Test: reassembler_seq
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_seq_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_seq" start time: Dec 29 21:00 CST
+"reassembler_seq" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_seq" end time: Dec 29 21:00 CST
+"reassembler_seq" end time: Dec 30 11:19 CST
 "reassembler_seq" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -218,14 +303,14 @@ Test Passed.
 12/40 Test: reassembler_dup
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_dup_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_dup" start time: Dec 29 21:00 CST
+"reassembler_dup" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.04 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_dup" end time: Dec 29 21:00 CST
+"reassembler_dup" end time: Dec 30 11:19 CST
 "reassembler_dup" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -233,14 +318,14 @@ Test Passed.
 13/40 Test: reassembler_holes
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_holes_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_holes" start time: Dec 29 21:00 CST
+"reassembler_holes" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_holes" end time: Dec 29 21:00 CST
+"reassembler_holes" end time: Dec 30 11:19 CST
 "reassembler_holes" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -248,14 +333,14 @@ Test Passed.
 14/40 Test: reassembler_overlapping
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_overlapping_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_overlapping" start time: Dec 29 21:00 CST
+"reassembler_overlapping" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_overlapping" end time: Dec 29 21:00 CST
+"reassembler_overlapping" end time: Dec 30 11:19 CST
 "reassembler_overlapping" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -263,14 +348,14 @@ Test Passed.
 15/40 Test: reassembler_win
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_win_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_win" start time: Dec 29 21:00 CST
+"reassembler_win" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.24 sec
+Test time =   0.23 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_win" end time: Dec 29 21:00 CST
+"reassembler_win" end time: Dec 30 11:19 CST
 "reassembler_win" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -278,14 +363,14 @@ Test Passed.
 16/40 Test: wrapping_integers_cmp
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/wrapping_integers_cmp_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"wrapping_integers_cmp" start time: Dec 29 21:00 CST
+"wrapping_integers_cmp" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.02 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"wrapping_integers_cmp" end time: Dec 29 21:00 CST
+"wrapping_integers_cmp" end time: Dec 30 11:19 CST
 "wrapping_integers_cmp" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -293,14 +378,14 @@ Test Passed.
 17/40 Test: wrapping_integers_wrap
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/wrapping_integers_wrap_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"wrapping_integers_wrap" start time: Dec 29 21:00 CST
+"wrapping_integers_wrap" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"wrapping_integers_wrap" end time: Dec 29 21:00 CST
+"wrapping_integers_wrap" end time: Dec 30 11:19 CST
 "wrapping_integers_wrap" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -308,14 +393,14 @@ Test Passed.
 18/40 Test: wrapping_integers_unwrap
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/wrapping_integers_unwrap_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"wrapping_integers_unwrap" start time: Dec 29 21:00 CST
+"wrapping_integers_unwrap" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"wrapping_integers_unwrap" end time: Dec 29 21:00 CST
+"wrapping_integers_unwrap" end time: Dec 30 11:19 CST
 "wrapping_integers_unwrap" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -323,14 +408,14 @@ Test Passed.
 19/40 Test: wrapping_integers_roundtrip
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/wrapping_integers_roundtrip_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"wrapping_integers_roundtrip" start time: Dec 29 21:00 CST
+"wrapping_integers_roundtrip" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.23 sec
 ----------------------------------------------------------
 Test Passed.
-"wrapping_integers_roundtrip" end time: Dec 29 21:00 CST
+"wrapping_integers_roundtrip" end time: Dec 30 11:19 CST
 "wrapping_integers_roundtrip" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -338,14 +423,14 @@ Test Passed.
 20/40 Test: wrapping_integers_extra
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/wrapping_integers_extra_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"wrapping_integers_extra" start time: Dec 29 21:00 CST
+"wrapping_integers_extra" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.23 sec
+Test time =   0.19 sec
 ----------------------------------------------------------
 Test Passed.
-"wrapping_integers_extra" end time: Dec 29 21:00 CST
+"wrapping_integers_extra" end time: Dec 30 11:19 CST
 "wrapping_integers_extra" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -353,14 +438,14 @@ Test Passed.
 21/40 Test: recv_connect
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_connect_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_connect" start time: Dec 29 21:00 CST
+"recv_connect" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_connect" end time: Dec 29 21:00 CST
+"recv_connect" end time: Dec 30 11:19 CST
 "recv_connect" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -368,14 +453,14 @@ Test Passed.
 22/40 Test: recv_transmit
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_transmit_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_transmit" start time: Dec 29 21:00 CST
+"recv_transmit" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.42 sec
+Test time =   0.37 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_transmit" end time: Dec 29 21:00 CST
+"recv_transmit" end time: Dec 30 11:19 CST
 "recv_transmit" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -383,14 +468,14 @@ Test Passed.
 23/40 Test: recv_window
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_window_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_window" start time: Dec 29 21:00 CST
+"recv_window" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_window" end time: Dec 29 21:00 CST
+"recv_window" end time: Dec 30 11:19 CST
 "recv_window" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -398,14 +483,14 @@ Test Passed.
 24/40 Test: recv_reorder
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_reorder_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_reorder" start time: Dec 29 21:00 CST
+"recv_reorder" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.03 sec
+Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_reorder" end time: Dec 29 21:00 CST
+"recv_reorder" end time: Dec 30 11:19 CST
 "recv_reorder" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -413,14 +498,14 @@ Test Passed.
 25/40 Test: recv_reorder_more
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_reorder_more_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_reorder_more" start time: Dec 29 21:00 CST
+"recv_reorder_more" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.89 sec
+Test time =   0.80 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_reorder_more" end time: Dec 29 21:00 CST
+"recv_reorder_more" end time: Dec 30 11:19 CST
 "recv_reorder_more" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -428,14 +513,14 @@ Test Passed.
 26/40 Test: recv_close
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_close_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_close" start time: Dec 29 21:00 CST
+"recv_close" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.02 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_close" end time: Dec 29 21:00 CST
+"recv_close" end time: Dec 30 11:19 CST
 "recv_close" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -443,29 +528,134 @@ Test Passed.
 27/40 Test: recv_special
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/recv_special_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"recv_special" start time: Dec 29 21:00 CST
+"recv_special" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.03 sec
 ----------------------------------------------------------
 Test Passed.
-"recv_special" end time: Dec 29 21:00 CST
+"recv_special" end time: Dec 30 11:19 CST
 "recv_special" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-37/40 Testing: no_skip
-37/40 Test: no_skip
-Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/no_skip_sanitized"
+28/40 Testing: send_connect
+28/40 Test: send_connect
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_connect_sanitized"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"no_skip" start time: Dec 29 21:00 CST
+"send_connect" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"send_connect" end time: Dec 30 11:19 CST
+"send_connect" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/40 Testing: send_transmit
+29/40 Test: send_transmit
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_transmit_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"send_transmit" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"send_transmit" end time: Dec 30 11:19 CST
+"send_transmit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/40 Testing: send_window
+30/40 Test: send_window
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_window_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"send_window" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.11 sec
+----------------------------------------------------------
+Test Passed.
+"send_window" end time: Dec 30 11:19 CST
+"send_window" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/40 Testing: send_ack
+31/40 Test: send_ack
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_ack_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"send_ack" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"no_skip" end time: Dec 29 21:00 CST
+"send_ack" end time: Dec 30 11:19 CST
+"send_ack" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/40 Testing: send_close
+32/40 Test: send_close
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_close_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"send_close" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"send_close" end time: Dec 30 11:19 CST
+"send_close" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/40 Testing: send_retx
+33/40 Test: send_retx
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_retx_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"send_retx" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"send_retx" end time: Dec 30 11:19 CST
+"send_retx" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/40 Testing: send_extra
+34/40 Test: send_extra
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/send_extra_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"send_extra" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.07 sec
+----------------------------------------------------------
+Test Passed.
+"send_extra" end time: Dec 30 11:19 CST
+"send_extra" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/40 Testing: no_skip
+37/40 Test: no_skip
+Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/no_skip_sanitized"
+Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
+"no_skip" start time: Dec 30 11:19 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"no_skip" end time: Dec 30 11:19 CST
 "no_skip" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -473,38 +663,43 @@ Test Passed.
 38/40 Test: compile with optimization
 Command: "/usr/bin/cmake" "--build" "/home/ada/CS-Systems-Internals/CS144-minnow/build" "-t" "speed_testing"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"compile with optimization" start time: Dec 29 21:00 CST
+"compile with optimization" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
 make[4]: warning: -j32 forced in submake: resetting jobserver mode.
-[ 23%] Built target minnow_optimized
-[ 84%] Built target util_optimized
-[ 92%] Built target reassembler_speed_test
-[100%] Built target byte_stream_speed_test
+[  7%] [32mBuilding CXX object src/CMakeFiles/minnow_optimized.dir/tcp_minnow_socket.cc.o[0m
+[ 15%] [32mBuilding CXX object src/CMakeFiles/minnow_optimized.dir/tcp_sender.cc.o[0m
+[ 69%] Built target util_optimized
+[ 76%] [1m[32mLinking CXX static library libminnow_optimized.a[0m
+[ 84%] Built target minnow_optimized
+[ 92%] [1m[32mLinking CXX executable byte_stream_speed_test[0m
+[ 92%] [1m[32mLinking CXX executable reassembler_speed_test[0m
+[ 92%] Built target byte_stream_speed_test
+[100%] Built target reassembler_speed_test
 [100%] Built target speed_testing
 <end of output>
-Test time =   0.14 sec
+Test time =   3.01 sec
 ----------------------------------------------------------
 Test Passed.
-"compile with optimization" end time: Dec 29 21:00 CST
-"compile with optimization" time elapsed: 00:00:00
+"compile with optimization" end time: Dec 30 11:19 CST
+"compile with optimization" time elapsed: 00:00:03
 ----------------------------------------------------------
 
 39/40 Testing: byte_stream_speed_test
 39/40 Test: byte_stream_speed_test
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/byte_stream_speed_test"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"byte_stream_speed_test" start time: Dec 29 21:00 CST
+"byte_stream_speed_test" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
-ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 25.10 Gbit/s.
-ByteStream with capacity=32768, write_size=1500, read_size=128 reached 15.24 Gbit/s.
-ByteStream with capacity=32768, write_size=1500, read_size=32 reached 7.22 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=4096 reached 30.85 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=128 reached 16.87 Gbit/s.
+ByteStream with capacity=32768, write_size=1500, read_size=32 reached 7.15 Gbit/s.
 <end of output>
-Test time =   0.22 sec
+Test time =   0.20 sec
 ----------------------------------------------------------
 Test Passed.
-"byte_stream_speed_test" end time: Dec 29 21:00 CST
+"byte_stream_speed_test" end time: Dec 30 11:19 CST
 "byte_stream_speed_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -512,17 +707,17 @@ Test Passed.
 40/40 Test: reassembler_speed_test
 Command: "/home/ada/CS-Systems-Internals/CS144-minnow/build/tests/reassembler_speed_test"
 Directory: /home/ada/CS-Systems-Internals/CS144-minnow/build
-"reassembler_speed_test" start time: Dec 29 21:00 CST
+"reassembler_speed_test" start time: Dec 30 11:19 CST
 Output:
 ----------------------------------------------------------
-Reassembler to ByteStream with capacity=32768 reached 129.19 Gbit/s.
-Reassembler to ByteStream with capacity=32768 reached 9.52 Gbit/s.
+Reassembler to ByteStream with capacity=32768 reached 115.59 Gbit/s.
+Reassembler to ByteStream with capacity=32768 reached 11.57 Gbit/s.
 <end of output>
-Test time =   0.23 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"reassembler_speed_test" end time: Dec 29 21:00 CST
+"reassembler_speed_test" end time: Dec 30 11:19 CST
 "reassembler_speed_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 29 21:00 CST
+End testing: Dec 30 11:19 CST
